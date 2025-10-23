@@ -16,13 +16,13 @@ ivanov-kabinet/                          ← Root repo
 │   │   └── custom-theme.css             ← Subject-specific theme (optional)
 │   └── programske_paradigme.html        ← Subject index
 │
-├── ikt-2/                               ← Subject 2
+├── ikt-1/                               ← Subject 2
 │   ├── README.md
 │   ├── lekcije/
 │   ├── prezentacije/
 │   │   ├── images/
 │   │   └── custom-theme.css
-│   └── ikt-2.html
+│   └── ikt-1.html
 │
 ├── shared/                              ← Shared resources
 │   ├── css/
