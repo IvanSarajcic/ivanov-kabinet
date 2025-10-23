@@ -156,6 +156,77 @@
 <p>Ово је познато као проблем <strong>одлучивости</strong> у теорији рачунарства.</p>
 </div>
 
+<h2>Примери коректности у C++ коду</h2>
+
+<p>Следи неколико конкретних примера некоректног и коректног кода који илуструју неке од честих грешака које доводе до некоректности:</p>
+
+<table border="1" style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+<th style="width: 5%;">№</th>
+<th style="width: 25%;">Некоректан код</th>
+<th style="width: 20%;">Проблем</th>
+<th style="width: 25%;">Коректан код</th>
+<th style="width: 25%;">Објашњење</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>if (a = b)</code></td>
+<td>Услов врши доделу уместо поређења</td>
+<td><code>if (a == b)</code></td>
+<td>Користи == за поређење, не =</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>int x; cout &lt;&lt; x;</code></td>
+<td>Променљива није иницијализована</td>
+<td><code>int x = 0; cout &lt;&lt; x;</code></td>
+<td>Свака променљива мора имати почетну вредност</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>int a=5,b=0; cout &lt;&lt; a/b;</code></td>
+<td>Дељење нулом изазива грешку при извршавању</td>
+<td><code>if (b != 0) cout &lt;&lt; a/b;</code></td>
+<td>Проверити делилац пре дељења</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>int niz[5]; cout &lt;&lt; niz[5];</code></td>
+<td>Индекс ван опсега (важе 0–4)</td>
+<td><code>cout &lt;&lt; niz[4];</code></td>
+<td>Индекси у низу почињу од нуле</td>
+</tr>
+<tr>
+<td>5</td>
+<td><pre><code>int min(int a,int b,int c){
+if(a&lt;b&amp;&amp;a&lt;c)return a;
+if(b&lt;c&amp;&amp;b&lt;a)return b;
+return c;}</code></pre></td>
+<td>Нетачно поређење када су неки бројеви једнаки</td>
+<td><pre><code>int min(int a,int b,int c){
+if(a&lt;=b&amp;&amp;a&lt;=c)return a;
+if(b&lt;=a&amp;&amp;b&lt;=c)return b;
+return c;}</code></pre></td>
+<td>Користи &lt;= уместо &lt; да би функција била исправна и при једнакости</td>
+</tr>
+</tbody>
+</table>
+
+<div class="info-box">
+<h3>Практични савети</h3>
+<p>Ови примери илуструју неке од најчешћих грешака које се праве приликом писања програма. Важно је развити навику пажљивог читања и анализе кода како би се овакве грешке избегле.</p>
+<p>Посебну пажњу треба обратити на:</p>
+<ul>
+<li><strong>Иницијализацију променљивих</strong> пре њиховог коришћења</li>
+<li><strong>Правилно коришћење оператора</strong> за поређење и доделу</li>
+<li><strong>Проверу граничних услова</strong> пре извршавања операција</li>
+<li><strong>Пажљиво руковање индексима</strong> низова</li>
+</ul>
+</div>
+
 </section></main>
 </body>
 </html>

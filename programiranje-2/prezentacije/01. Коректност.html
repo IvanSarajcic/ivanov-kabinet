@@ -226,7 +226,114 @@
             </section>
 
             <section>
-                <h2>Закључак</h2>
+                <section>
+                    <h2>Примери коректности у коду</h2>
+                    <p>Конкретни примери грешака у C++ коду</p>
+                </section>
+
+                <section>
+                    <h3>Грешка 1: Додела уместо поређења</h3>
+                    <div style="display: flex; justify-content: space-around;">
+                        <div>
+                            <h4 style="color: red;">❌ Некоректно</h4>
+                            <pre><code>if (a = b)</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <h4 style="color: green;">✅ Коректно</h4>
+                            <pre><code>if (a == b)</code></pre>
+                        </div>
+                    </div>
+                    <p class="fragment">Користи <strong>==</strong> за поређење, не <strong>=</strong></p>
+                </section>
+
+                <section>
+                    <h3>Грешка 2: Неиницијализована променљива</h3>
+                    <div style="display: flex; justify-content: space-around;">
+                        <div>
+                            <h4 style="color: red;">❌ Некоректно</h4>
+                            <pre><code>int x;
+cout << x;</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <h4 style="color: green;">✅ Коректно</h4>
+                            <pre><code>int x = 0;
+cout << x;</code></pre>
+                        </div>
+                    </div>
+                    <p class="fragment">Свака променљива мора имати почетну вредност</p>
+                </section>
+
+                <section>
+                    <h3>Грешка 3: Дељење нулом</h3>
+                    <div style="display: flex; justify-content: space-around;">
+                        <div>
+                            <h4 style="color: red;">❌ Некоректно</h4>
+                            <pre><code>int a=5, b=0;
+cout << a/b;</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <h4 style="color: green;">✅ Коректно</h4>
+                            <pre><code>if (b != 0)
+    cout << a/b;</code></pre>
+                        </div>
+                    </div>
+                    <p class="fragment">Проверити делилац пре дељења</p>
+                </section>
+
+                <section>
+                    <h3>Грешка 4: Индекс ван опсега</h3>
+                    <div style="display: flex; justify-content: space-around;">
+                        <div>
+                            <h4 style="color: red;">❌ Некоректно</h4>
+                            <pre><code>int niz[5];
+cout << niz[5];</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <h4 style="color: green;">✅ Коректно</h4>
+                            <pre><code>int niz[5];
+cout << niz[4];</code></pre>
+                        </div>
+                    </div>
+                    <p class="fragment">Низ од 5 елемената: индекси 0-4</p>
+                </section>
+
+                <section>
+                    <h3>Грешка 5: Проблем са једнакошћу</h3>
+                    <div style="font-size: 0.8em;">
+                        <div>
+                            <h4 style="color: red;">❌ Некоректно</h4>
+                            <pre><code>int min(int a,int b,int c){
+if(a<b&&a<c) return a;
+if(b<c&&b<a) return b;
+return c;
+}</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <h4 style="color: green;">✅ Коректно</h4>
+                            <pre><code>int min(int a,int b,int c){
+if(a<=b&&a<=c) return a;
+if(b<=a&&b<=c) return b;
+return c;
+}</code></pre>
+                        </div>
+                    </div>
+                    <p class="fragment">Користи <strong><=</strong> за правилно руковање једнакошћу</p>
+                </section>
+
+                <section>
+                    <h3>Практични савети</h3>
+                    <ul>
+                        <li class="fragment">Увек иницијализовати променљиве</li>
+                        <li class="fragment">Пажљиво разликовати = и ==</li>
+                        <li class="fragment">Проверити граничне услове</li>
+                        <li class="fragment">Водити рачуна о индексима низова</li>
+                        <li class="fragment">Тестирати специјалне случајеве</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                
                 <ul>
                     <li class="fragment">Коректност је кључна за безбедност софтвера</li>
                     <li class="fragment">Историјски примери показују цену грешака</li>
