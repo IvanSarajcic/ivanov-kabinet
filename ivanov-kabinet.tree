@@ -1,0 +1,35 @@
+ivanov-kabinet/                          ← Root repo
+├── .gitignore                           ← Global ignores
+├── README.md                            ← Main index of all subjects
+├── reveal.js/                           ← Shared presentation framework (ignored)
+│
+├── programske-paradigme/                ← Subject 1
+│   ├── README.md
+│   ├── lekcije/                         ← HTML lessons
+│   │   ├── 01. О програмским језицима.html
+│   │   ├── 02. Императивна парадигма.html
+│   │   └── ...
+│   ├── prezentacije/                    ← Presentations for this subject
+│   │   ├── 01-programski-jezici.html
+│   │   ├── 02-imperativna.html
+│   │   ├── images/                      ← Subject-specific images
+│   │   └── custom-theme.css             ← Subject-specific theme (optional)
+│   └── programske_paradigme.html        ← Subject index
+│
+├── ikt-2/                               ← Subject 2
+│   ├── README.md
+│   ├── lekcije/
+│   ├── prezentacije/
+│   │   ├── images/
+│   │   └── custom-theme.css
+│   └── ikt-2.html
+│
+├── shared/                              ← Shared resources
+│   ├── css/
+│   │   └── common-theme.css             ← Common styling for all subjects
+│   └── images/                          ← Shared images (logos, etc.)
+│
+└── prezentacije/                        ← Shared presentation resources
+    ├── README.md                        ← Setup instructions
+    ├── THEMES-AND-IMAGES.md
+    └── TEMPLATE.html                    ← Presentation template
