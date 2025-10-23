@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Коректност алгоритама и програма</title>
+    <link rel="stylesheet" href="../../reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="../../reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <section>
+                <h1>Коректност алгоритама и програма</h1>
+                <h3>Програмирање 2</h3>
+                <p>
+                    <small>Базирано на скрипти Предрага Јаничића и Филипа Марића</small>
+                </p>
+            </section>
+
+            <section>
+                <h2>Шта је коректност?</h2>
+                <ul>
+                    <li class="fragment">Исправност је <strong>суштинска особина</strong> алгоритама и програма</li>
+                    <li class="fragment">Од програма се захтева да буде практично <strong>апсолутно непогрешив</strong></li>
+                    <li class="fragment">Централно питање у развоју програма</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Зашто је коректност важна?</h2>
+                <div class="fragment">
+                    <p>Софтвер контролише:</p>
+                    <ul>
+                        <li>Банковне рачуне</li>
+                        <li>Компоненте аутомобила</li>
+                        <li>Нуклеарне електране</li>
+                        <li>Авионе и свемирске летелице</li>
+                    </ul>
+                </div>
+                <p class="fragment"><strong>Грешка може коштати живота!</strong></p>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Познате софтверске катастрофе</h2>
+                    <p>Историјски примери који су обележили развој софтвера</p>
+                </section>
+
+                <section>
+                    <h3>Ариана 5 (1996)</h3>
+                    <ul>
+                        <li><strong>Проблем:</strong> Конверзија 64-битног реалног у 16-битни цео број</li>
+                        <li><strong>Узрок:</strong> Прекорачење (overflow)</li>
+                        <li><strong>Последице:</strong> Експлозија ракете</li>
+                    </ul>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ariane_5_explosion.jpg/300px-Ariane_5_explosion.jpg" alt="Ariane 5 explosion" style="max-height: 300px;">
+                </section>
+
+                <section>
+                    <h3>Криосат сателит (2005)</h3>
+                    <ul>
+                        <li><strong>Проблем:</strong> Грешка у софтверу за раздвајање</li>
+                        <li><strong>Узрок:</strong> Није дошло до раздвајања сателита и ракете</li>
+                        <li><strong>Трошак:</strong> 135 милиона евра</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Pentium bug (1994)</h3>
+                    <ul>
+                        <li><strong>Проблем:</strong> Грешка у нумеричком копроцесору</li>
+                        <li><strong>Узрок:</strong> Погрешни индекси у for петљи</li>
+                        <li><strong>Контекст:</strong> Софтвер за дизајн чипа</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Mars Climate Orbiter (1999)</h3>
+                    <ul>
+                        <li><strong>Проблем:</strong> Несагласност јединица</li>
+                        <li><strong>Узрок:</strong> Део софтвера користио метричке, део енглеске јединице</li>
+                        <li><strong>Последице:</strong> Губитак орбитера</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Савремени примери</h2>
+                    <p>Грешке се и даље дешавају...</p>
+                </section>
+
+                <section>
+                    <h3>Microsoft Excel 2007</h3>
+                    <ul>
+                        <li><strong>Проблем:</strong> 77.1 * 850 = 100 000</li>
+                        <li><strong>Узрок:</strong> Грешка у алгоритму форматирања</li>
+                        <li><strong>Напомена:</strong> Интерно вредност је била исправна</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Лос Анђелес аеродром (2004)</h3>
+                    <ul>
+                        <li><strong>Проблем:</strong> 400+ авиона изгубило везу</li>
+                        <li><strong>Узрок:</strong> Прекорачење у бројачу милисекунди</li>
+                        <li><strong>Детаљ:</strong> Грешка позната, али није поправљена</li>
+                        <li><strong>Решење:</strong> Требало рестартовати сваких 30 дана</li>
+                        <li><strong>Проблем:</strong> Процедура није поштована</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Немачки пензиони систем (2005)</h3>
+                    <ul>
+                        <li><strong>Проблем:</strong> 5% пензионера остало без новца</li>
+                        <li><strong>Узрок:</strong> Допуњавање нула са погрешне стране</li>
+                        <li><strong>Детаљ:</strong> Требало лево, радило десно</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <h2>Верификовање програма</h2>
+                <div class="fragment">
+                    <p><strong>Верификовање</strong> = показивање да је програм исправан</p>
+                </div>
+                <div class="fragment">
+                    <p>Потребно је прецизно формулисати појам исправности</p>
+                </div>
+                <div class="fragment">
+                    <p>Исправност почива на појму <strong>спецификације</strong></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Спецификација</h2>
+                <ul>
+                    <li class="fragment"><strong>Спецификација</strong> = опис жељеног понашања програма</li>
+                    <li class="fragment">Задаје се у терминима:
+                        <ul>
+                            <li><strong>Предуслова</strong> - услови које улазни параметри задовољавају</li>
+                            <li><strong>Постуслова</strong> - услови које резултати морају да задовоље</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Приступи верификацији</h2>
+                <div style="display: flex; justify-content: space-around;">
+                    <div class="fragment">
+                        <h3>Динамичка</h3>
+                        <ul>
+                            <li>Фаза извршавања</li>
+                            <li>Тестирање</li>
+                        </ul>
+                    </div>
+                    <div class="fragment">
+                        <h3>Статичка</h3>
+                        <ul>
+                            <li>Анализа изворног кода</li>
+                            <li>Формалне методе</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Тестирање</h2>
+                <ul>
+                    <li class="fragment">Најзначајнији облик постизања исправности</li>
+                    <li class="fragment">Упоређивање добијених и очекиваних резултата</li>
+                    <li class="fragment"><strong>Важно:</strong> Тестирањем не можемо доказати коректност!</li>
+                    <li class="fragment">Можемо само доказати <strong>некоректност</strong></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Сложеност тестирања</h2>
+                <div class="fragment">
+                    <p>Програм који сабира два 32-битна броја:</p>
+                    <p><strong>2³² × 2³² = 2⁶⁴</strong> комбинација</p>
+                </div>
+                <div class="fragment">
+                    <p>Исцрпно тестирање би трајало <strong>годинама</strong></p>
+                </div>
+                <div class="fragment">
+                    <p>Решење: Пажљив избор тест случајева</p>
+                    <ul>
+                        <li>Покривање различитих грана</li>
+                        <li>Гранични случајеви (edge cases)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Аспекти коректности</h2>
+                <div style="display: flex; justify-content: space-around;">
+                    <div class="fragment">
+                        <h3>Парцијална коректност</h3>
+                        <p>Свака вредност коју алгоритам израчуна мора да задовољи спецификацију</p>
+                    </div>
+                    <div class="fragment">
+                        <h3>Заустављање</h3>
+                        <p>Алгоритам мора да се заустави за све допуштене улазе</p>
+                    </div>
+                </div>
+                <div class="fragment">
+                    <p><strong>Тотална коректност</strong> = Парцијална коректност + Заустављање</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Теоријско ограничење</h2>
+                <div class="fragment">
+                    <p>Доказано је да <strong>не постоје алгоритми</strong> којима би се испитивала својства коректности алгоритама.</p>
+                </div>
+                <div class="fragment">
+                    <p>Ово је познато као проблем <strong>одлучивости</strong> у теорији рачунарства.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Закључак</h2>
+                <ul>
+                    <li class="fragment">Коректност је кључна за безбедност софтвера</li>
+                    <li class="fragment">Историјски примери показују цену грешака</li>
+                    <li class="fragment">Тестирање је основни, али ограничен приступ</li>
+                    <li class="fragment">Потребне су формалне методе за критичне системе</li>
+                    <li class="fragment">Проблем је теоријски неодлучив, али практично решив</li>
+                </ul>
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="../../reveal.js/dist/reveal.js"></script>
+    <script src="../../reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>

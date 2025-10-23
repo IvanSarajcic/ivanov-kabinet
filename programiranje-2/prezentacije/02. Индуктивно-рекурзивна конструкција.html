@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Индуктивно-рекурзивна конструкција</title>
+    <link rel="stylesheet" href="../../reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/theme/white.css">
+    <link rel="stylesheet" href="../../reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <section>
+                <h1>Индуктивно-рекурзивна конструкција</h1>
+                <h3>Програмирање 2</h3>
+                <p>
+                    <small>Базирано на скрипти Предрага Јаничића и Филипа Марића</small>
+                </p>
+            </section>
+
+            <section>
+                <h2>Основа исправних програма</h2>
+                <ul>
+                    <li class="fragment">Сваки исправан програм мора бити заснован на <strong>исправном алгоритму</strong></li>
+                    <li class="fragment">Од неисправног алгоритма није могуће направити исправан програм</li>
+                    <li class="fragment">Али: од исправног алгоритма може се добити неисправан програм!</li>
+                </ul>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Честе грешке у програмима</h2>
+                    <p>Преглед најчешћих извора грешака</p>
+                </section>
+
+                <section>
+                    <h3>Проблем комуникације</h3>
+                    <ul>
+                        <li class="fragment">Задатак није довољно прецизно постављен</li>
+                        <li class="fragment">Различито разумевање задатка</li>
+                        <li class="fragment">Недовољно пажљиво читање спецификације</li>
+                        <li class="fragment">Погрешно разумевање задатка</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Грешка погрешног избора типа</h3>
+                    <ul>
+                        <li class="fragment">Бројевни тип не може да представи све вредности</li>
+                        <li class="fragment">Долази до <strong>прекорачења</strong> (overflow)</li>
+                        <li class="fragment">Посебно опасно: тип је добар за улаз/излаз, али не за <strong>међурезултате</strong></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Грешка за 1 (Off by one)</h3>
+                    <div class="fragment">
+                        <p><strong>Питање:</strong> Стубови се постављају на свака 2 метра. Ограда је дуга 20 метара. Колико стубова?</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Одговор:</strong> 11, не 10!</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Програмерски:</strong> Обрадити елементе од индекса a до b. Колико елемената? <strong>b-a+1</strong></p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Buffer Overflow</h3>
+                    <ul>
+                        <li class="fragment">Приступ елементима ван граница низа</li>
+                        <li class="fragment">Низ од n елемената: позиције 0, 1, ..., n-1</li>
+                        <li class="fragment">Критична позиција: n (не постоји!)</li>
+                    </ul>
+                    <table class="fragment" style="margin-top: 20px;">
+                        <tr><th>Језик</th><th>Понашање</th></tr>
+                        <tr><td>C++</td><td>Недефинисано понашање</td></tr>
+                        <tr><td>C#</td><td>Изузетак</td></tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Грешке приликом копирања</h3>
+                    <ul>
+                        <li class="fragment">Копирање сличних наредби</li>
+                        <li class="fragment">Заборав преправљања деталја</li>
+                        <li class="fragment">Веома чест пропуст</li>
+                        <li class="fragment">Тешко за откривање</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Специјални случајеви</h3>
+                    <ul>
+                        <li class="fragment">Празни скупови</li>
+                        <li class="fragment">Специјални односи улазних вредности</li>
+                        <li class="fragment">Специјални међурезултати</li>
+                        <li class="fragment">Пример: Тражење елемента који не постоји</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Математичка индукција</h2>
+                    <p>Кључна идеја у конструкцији алгоритама</p>
+                </section>
+
+                <section>
+                    <h3>Принцип индукције</h3>
+                    <p>За својство P природних бројева:</p>
+                    <div class="fragment">
+                        <p><strong>(P(0) ∧ (∀n)(P(n) ⇒ P(n+1))) ⇒ (∀n)(P(n))</strong></p>
+                    </div>
+                    <ul class="fragment">
+                        <li><strong>База:</strong> P(0) је тачно</li>
+                        <li><strong>Корак:</strong> P(n) ⇒ P(n+1)</li>
+                        <li><strong>Закључак:</strong> P важи за све природне бројеве</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Интуитивно објашњење</h3>
+                    <ul>
+                        <li class="fragment">База: 0 има својство P</li>
+                        <li class="fragment">Корак: ако n има P, онда и n+1 има P</li>
+                        <li class="fragment">Дакле: 0 → 1 → 2 → 3 → ...</li>
+                        <li class="fragment">Можемо стићи до било ког природног броја</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Индуктивни приступ</h2>
+                    <p>Основни метод конструкције алгоритама</p>
+                </section>
+
+                <section>
+                    <h3>Идеја приступа</h3>
+                    <ul>
+                        <li class="fragment">Решење проблема веће димензије</li>
+                        <li class="fragment">Користи решење проблема мање димензије</li>
+                        <li class="fragment">За елементарне проблеме: директно решење</li>
+                        <li class="fragment">Ако се димензија увек смањује → заустављање</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Два начина имплементације</h3>
+                    <div style="display: flex; justify-content: space-around;">
+                        <div class="fragment">
+                            <h4>Итеративно</h4>
+                            <ul>
+                                <li>Петље</li>
+                                <li>Ажурирање променљивих</li>
+                                <li><strong>Индуктивно</strong></li>
+                            </ul>
+                        </div>
+                        <div class="fragment">
+                            <h4>Рекурзивно</h4>
+                            <ul>
+                                <li>Функција позива саму себе</li>
+                                <li>Мањи проблем</li>
+                                <li><strong>Рекурзивно</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Пример: Збир низа</h2>
+                    <p>Класичан пример индуктивне конструкције</p>
+                </section>
+
+                <section>
+                    <h3>Индуктивна идеја</h3>
+                    <ul>
+                        <li class="fragment">Знамо збир празне серије: <strong>0</strong></li>
+                        <li class="fragment">Знамо збир од k елемената</li>
+                        <li class="fragment">Како израчунати збир од k+1 елемената?</li>
+                        <li class="fragment">Додати нови елемент на постојећи збир!</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Имплементација</h3>
+                    <pre><code data-trim data-noescape>
+int zbir = 0;
+for (int i = 0; i < a.Length; i++)
+    zbir = zbir + a[i];
+                    </code></pre>
+                    <ul class="fragment">
+                        <li><strong>База:</strong> zbir = 0 (празна серија)</li>
+                        <li><strong>Корак:</strong> zbir += a[i] (додај нови елемент)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Варијанта</h3>
+                    <pre><code data-trim data-noescape>
+int zbir = a[0];  // база: први елемент
+for (int i = 1; i < a.Length; i++)
+    zbir = zbir + a[i];
+                    </code></pre>
+                    <p class="fragment">База може бити и једночлани низ!</p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Веза са доказивањем коректности</h2>
+                <ul>
+                    <li class="fragment">Индуктивна конструкција ↔ Доказивање коректности</li>
+                    <li class="fragment">Формални оквир: <strong>Хорова логика</strong></li>
+                    <li class="fragment">Ми ћемо користити неформалне доказе</li>
+                    <li class="fragment">Следећа тема: <strong>Инваријанте петље</strong></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Поједностављења за учење</h2>
+                <div class="fragment">
+                    <p>Игнорисаћемо ограничења рачунара:</p>
+                    <ul>
+                        <li>Неограничен опсег бројева</li>
+                        <li>Максимална прецизност реалних бројева</li>
+                        <li>Без overflow/underflow грешака</li>
+                    </ul>
+                </div>
+                <p class="fragment"><em>Фокус на логику, не на техничке детаље</em></p>
+            </section>
+
+            <section>
+                <h2>Кључне поуке</h2>
+                <ul>
+                    <li class="fragment">Исправан алгоритам ≠ исправан програм</li>
+                    <li class="fragment">Познати грешке и како их избећи</li>
+                    <li class="fragment">Математичка индукција је основа</li>
+                    <li class="fragment">Два приступа: итеративни и рекурзивни</li>
+                    <li class="fragment">Индуктивна конструукција води ка доказивању коректности</li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Питања?</h1>
+                <p>Следећа тема: Инваријанте петље</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../../reveal.js/dist/reveal.js"></script>
+    <script src="../../reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>
