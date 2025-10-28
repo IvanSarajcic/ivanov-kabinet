@@ -4,6 +4,12 @@ body {
     background-color: rgb(253, 240, 160);
 }
 
+header {
+    /* center header content */
+    text-align: center;
+    padding: 1rem 0;
+}
+
 ol, ul {
     /* set margin and padding for lists to be separated a bit from paragraphs */
     margin: 2rem 0;
