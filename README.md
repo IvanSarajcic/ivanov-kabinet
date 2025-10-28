@@ -36,11 +36,11 @@ ivanov-kabinet/
 ## Инсталација
 
 ```bash
-# Клонирайте репозиторијум
+# Клонирајте репозиторијум
 git clone https://github.com/IvanSarajcic/ivanov-kabinet.git
 cd ivanov-kabinet
 
-# Инсталирайте reveal.js (само први пут)
+# Инсталирајте reveal.js (само први пут)
 git clone https://github.com/hakimel/reveal.js.git
 cd reveal.js
 npm install
