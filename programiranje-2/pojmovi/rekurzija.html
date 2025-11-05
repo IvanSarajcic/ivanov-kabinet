@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рекурзија - Програмирање 2</title>
+    <link rel="stylesheet" href="../../_shared/css/course-styles.css">
+    <link rel="stylesheet" href="../stil.css">
+    <style>
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .example-box {
+            background-color: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .code-comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .code-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+<nav><a href="../index.html">← Назад на листу лекција</a></nav>
+
+<h1>Рекурзија</h1>
+
+<blockquote>
+<p><em>"Да бисте разумели рекурзију, прво морате разумети рекурзију."</em></p>
+</blockquote>
+
+<h2>Шта је рекурзија?</h2>
+
+<p>Рекурзија може бити тешка за разумевање — посебно за почетнике у програмирању. У најједноставнијем облику, <strong>рекурзивна функција је функција која позива саму себе</strong>.</p>
+
+<h3>Илустративан пример: Тражење кључа у кутијама</h3>
+
+<p>Замисли да желиш да уђеш у собу, али су врата закључана. Твој трогодишњи син ти каже да је сакрио једини кључ у кутију. Касниш на посао и хитно ти треба кошуља из те собе.</p>
+
+<p>Отвориш кутију и нађеш... још кутија! Кутије унутар кутија. И не знаш у којој је кључ! Мораш смислити добар алгоритам да пронађеш кључ.</p>
+
+<p>Постоје два главна приступа за решавање овог проблема: <strong>итеративни</strong> и <strong>рекурзивни</strong>.</p>
+
+<h3>Итеративни приступ (са петљом)</h3>
+
+<p>Прави се гомила кутија за претраживање. Док гомила није празна, узми кутију и погледај у њу:</p>
+
+<div class="code-comparison">
+    <div>
+        <pre class="code" data-lang="c++"><span class="kt">void</span> <span class="nf">pronadji_kljuc_iterativno</span><span class="p">(</span><span class="n">Kutija</span> <span class="n">glavna_kutija</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Kutija</span><span class="o">&gt;</span> <span class="n">gomila</span> <span class="o">=</span> <span class="n">glavna_kutija</span><span class="p">.</span><span class="n">napraviGomilu</span><span class="p">();</span>
+    
+    <span class="k">while</span> <span class="p">(!</span><span class="n">gomila</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">Kutija</span> <span class="n">kutija</span> <span class="o">=</span> <span class="n">gomila</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+        <span class="n">gomila</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="n">Predmet</span> <span class="nl">predmet</span> <span class="p">:</span> <span class="n">kutija</span><span class="p">.</span><span class="n">sadrzaj</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">predmet</span><span class="p">.</span><span class="n">jeKutija</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">gomila</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">predmet</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">predmet</span><span class="p">.</span><span class="n">jeKljuc</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Pronađen ključ!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></pre>
+    </div>
+    <div>
+        <pre class="code" data-lang="python"><span class="k">def</span> <span class="nf">pronadji_kljuc_iterativno</span><span class="p">(</span><span class="n">glavna_kutija</span><span class="p">):</span>
+    <span class="n">gomila</span> <span class="o">=</span> <span class="n">glavna_kutija</span><span class="o">.</span><span class="n">napravi_gomilu</span><span class="p">()</span>
+    
+    <span class="k">while</span> <span class="n">gomila</span><span class="p">:</span>
+        <span class="n">kutija</span> <span class="o">=</span> <span class="n">gomila</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">predmet</span> <span class="ow">in</span> <span class="n">kutija</span><span class="o">.</span><span class="n">sadrzaj</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">predmet</span><span class="o">.</span><span class="n">je_kutija</span><span class="p">():</span>
+                <span class="n">gomila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">predmet</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">predmet</span><span class="o">.</span><span class="n">je_kljuc</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Pronađen ključ!"</span><span class="p">)</span>
+                <span class="k">return</span></pre>
+    </div>
+</div>
+
+<h3>Рекурзивни приступ</h3>
+
+<p>Функција позива саму себе:</p>
+
+<div class="code-comparison">
+    <div>
+        <pre class="code" data-lang="c++"><span class="kt">void</span> <span class="nf">pronadji_kljuc</span><span class="p">(</span><span class="n">Kutija</span> <span class="n">kutija</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">Predmet</span> <span class="nl">predmet</span> <span class="p">:</span> <span class="n">kutija</span><span class="p">.</span><span class="n">sadrzaj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">predmet</span><span class="p">.</span><span class="n">jeKutija</span><span class="p">())</span> <span class="p">{</span>
+            <span class="nf">pronadji_kljuc</span><span class="p">(</span><span class="n">predmet</span><span class="p">);</span>  <span class="c1">// Rekurzivni poziv!</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">predmet</span><span class="p">.</span><span class="n">jeKljuc</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Pronađen ključ!"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></pre>
+    </div>
+    <div>
+        <pre class="code" data-lang="python"><span class="k">def</span> <span class="nf">pronadji_kljuc</span><span class="p">(</span><span class="n">kutija</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">predmet</span> <span class="ow">in</span> <span class="n">kutija</span><span class="o">.</span><span class="n">sadrzaj</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">predmet</span><span class="o">.</span><span class="n">je_kutija</span><span class="p">():</span>
+            <span class="n">pronadji_kljuc</span><span class="p">(</span><span class="n">predmet</span><span class="p">)</span>  <span class="c1"># Rekurzivni poziv!</span>
+        <span class="k">elif</span> <span class="n">predmet</span><span class="o">.</span><span class="n">je_kljuc</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Pronađen ključ!"</span><span class="p">)</span>
+            <span class="k">return</span></pre>
+    </div>
+</div>
+
+<div class="info-box">
+<h3>Зашто користити рекурзију?</h3>
+<p>Оба приступа постижу исти резултат. Главна предност рекурзије је <strong>једноставност и читљивост кода</strong>. Рекурзивни приступ често је лакши за разумевање када га научите. Нема посебне предности у перформансама — итеративни приступ са петљама понекад може бити чак и бржи.</p>
+</div>
+
+<h2>Основни и рекурзивни случај</h2>
+
+<p>Када пишете рекурзивну функцију, морате пазити на <strong>бесконачну петљу</strong>. То се дешава када функција наставља да позива саму себе... и никада не престане!</p>
+
+<h3>Пример бесконачне рекурзије</h3>
+
+<div class="warning-box">
+<h4>⚠️ УПОЗОРЕЊЕ: Ова функција садржи бесконачну петљу!</h4>
+
+<div class="code-comparison">
+    <div>
+        <pre class="code" data-lang="c++"><span class="kt">void</span> <span class="nf">odbrojavanje</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="nf">odbrojavanje</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// Зове себе заувек!</span>
+<span class="p">}</span></pre>
+    </div>
+    <div>
+        <pre class="code" data-lang="python"><span class="k">def</span> <span class="nf">odbrojavanje</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">odbrojavanje</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Зове себе заувек!</span></pre>
+    </div>
+</div>
+
+<p>Ова функција ће бројати уназад до бесконачности (или док не преплави стек).</p>
+</div>
+
+<h3>Исправна рекурзивна функција</h3>
+
+<p>Рекурзивна функција увек мора имати <strong>два дела</strong>:</p>
+
+<ol>
+<li><strong>Основни случај</strong> (base case) - када функција престаје да позива саму себе</li>
+<li><strong>Рекурзивни случај</strong> (recursive case) - када функција позива саму себе</li>
+</ol>
+
+<p>Ево исправне верзије функције одбројавања:</p>
+
+<div class="code-comparison">
+    <div>
+        <pre class="code" data-lang="c++"><span class="kt">void</span> <span class="nf">odbrojavanje</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// OSNOVNI SLUČAJ</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>       <span class="c1">// REKURZIVNI SLUČAJ</span>
+        <span class="nf">odbrojavanje</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">odbrojavanje</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>  <span class="c1">// Ispisuje: 5 4 3 2 1</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></pre>
+    </div>
+    <div>
+        <pre class="code" data-lang="python"><span class="k">def</span> <span class="nf">odbrojavanje</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># OSNOVNI SLUČAJ</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>       <span class="c1"># REKURZIVNI SLUČAJ</span>
+        <span class="n">odbrojavanje</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">odbrojavanje</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Ispisuje: 5 4 3 2 1</span></pre>
+    </div>
+</div>
+
+<h3>Како ово ради?</h3>
+
+<p>Хајде да пратимо шта се дешава када позовемо <code>odbrojavanje(5)</code>:</p>
+
+<ol>
+<li>Испишемо број 5</li>
+<li>Пошто 5 није мање или једнако 1, идемо у <code>else</code> блок</li>
+<li>Позивамо <code>odbrojavanje(4)</code></li>
+<li>Испишемо број 4, позовемо <code>odbrojavanje(3)</code></li>
+<li>Испишемо број 3, позовемо <code>odbrojavanje(2)</code></li>
+<li>Испишемо број 2, позовемо <code>odbrojavanje(1)</code></li>
+<li>Испишемо број 1, пошто је <code>i <= 1</code>, извршавамо <code>return</code> и излазимо</li>
+</ol>
+
+<h2>Стек позива (Call Stack)</h2>
+
+<p>Рекурзивне функције користе <strong>стек позива</strong>. Када програм позове функцију, та функција се ставља на врх стека. Ово је слично стеку књига — додајеш ствари једну по једну, а када треба да узмеш нешто, увек узмеш са врха.</p>
+
+<h3>Пример: Факторијел</h3>
+
+<p>Факторијел броја 5 се пише као <strong>5!</strong> и дефинише се као: <strong>5! = 5 × 4 × 3 × 2 × 1 = 120</strong></p>
+
+<p>Ево рекурзивне функције за рачунање факторијела:</p>
+
+<div class="code-comparison">
+    <div>
+        <pre class="code" data-lang="c++"><span class="kt">int</span> <span class="nf">faktorijel</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// OSNOVNI SLUČAJ</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>               <span class="c1">// REKURZIVNI SLUČAJ</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="nf">faktorijel</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"5! = "</span> <span class="o">&lt;&lt;</span> <span class="nf">faktorijel</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// Ispisuje: 5! = 120</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></pre>
+    </div>
+    <div>
+        <pre class="code" data-lang="python"><span class="k">def</span> <span class="nf">faktorijel</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>          <span class="c1"># OSNOVNI SLUČAJ</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>               <span class="c1"># REKURZIVNI SLUČAJ</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">faktorijel</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"5! = </span><span class="si">{</span><span class="n">faktorijel</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># Ispisuje: 5! = 120</span></pre>
+    </div>
+</div>
