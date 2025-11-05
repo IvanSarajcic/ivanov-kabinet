@@ -58,7 +58,7 @@ npm install
 ## Додавање новог предмета
 
 1. Направите фолдер `novi-predmet/`
-2. Копирайте структуру из `_shared/TEMPLATE.html`
+2. Копирајте структуру из `_shared/TEMPLATE.html`
 3. Додајте у овај README
 
 ---
