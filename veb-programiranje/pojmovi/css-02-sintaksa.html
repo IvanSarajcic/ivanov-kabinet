@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Синтакса | Веб програмирање</title>
+    <link rel="stylesheet" href="../../_shared/css/course-styles.css">
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
+    <nav>
+        <a href="css-01-uvod.html">← Претходно: CSS Увод</a>
+        <span class="nav-divider">|</span>
+        <a href="../index.html">Назад на листу лекција</a>
+        <span class="nav-divider">|</span>
+        <a href="css-03-selektori.html">Следеће: CSS Селектори →</a>
+    </nav>
+    
+    <header>
+        <h1>CSS Синтакса</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Структура CSS правила</h2>
+            <p>
+                CSS правило се састоји од <strong>селектора</strong> и <strong>блока декларација</strong>:
+            </p>
+            
+            <div class="syntax-diagram">
+                <pre>
+селектор {
+    својство: вредност;
+    својство: вредност;
+}</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Компоненте CSS правила</h2>
+            
+            <h3>1. Селектор</h3>
+            <p>
+                <strong>Селектор</strong> указује на HTML елемент који желите да стилизујете.
+            </p>
+
+            <h3>2. Блок декларација</h3>
+            <p>
+                Блок декларација садржи једну или више декларација одвојених <strong>тачка-зарезом (;)</strong>.
+            </p>
+
+            <h3>3. Декларација</h3>
+            <p>
+                Свака декларација укључује:
+            </p>
+            <ul>
+                <li><strong>Име CSS својства</strong></li>
+                <li><strong>Вредност својства</strong></li>
+                <li>Одвојене су <strong>двотачком (:)</strong></li>
+            </ul>
+
+            <h3>4. Витичасте заграде</h3>
+            <p>
+                Блокови декларација су окружени <strong>витичастим заградама { }</strong>.
+            </p>
+        </section>
+
+        <section>
+            <h2>Пример</h2>
+            <p>У овом примеру сви <code>&lt;p&gt;</code> елементи ће бити центрирани, са црвеном бојом текста:</p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">p</span> <span class="punctuation">{</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span>
+  <span class="property">text-align</span><span class="punctuation">:</span> <span class="value">center</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+        </section>
+
+        <section>
+            <h2>Објашњење примера</h2>
+            <div class="highlight-box">
+                <ul>
+                    <li><code>p</code> је селектор у CSS-у (показује на HTML елемент који желите да стилизујете: <code>&lt;p&gt;</code>)</li>
+                    <li><code>color</code> је својство, а <code>red</code> је вредност својства</li>
+                    <li><code>text-align</code> је својство, а <code>center</code> је вредност својства</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Више декларација</h2>
+            <p>
+                Можете додати више CSS декларација у један блок. Свака декларација мора бити одвојена тачка-зарезом:
+            </p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">h1</span> <span class="punctuation">{</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">blue</span><span class="punctuation">;</span>
+  <span class="property">font-size</span><span class="punctuation">:</span> <span class="number">24</span><span class="unit">px</span><span class="punctuation">;</span>
+  <span class="property">font-weight</span><span class="punctuation">:</span> <span class="value">bold</span><span class="punctuation">;</span>
+  <span class="property">margin</span><span class="punctuation">:</span> <span class="number">10</span><span class="unit">px</span> <span class="number">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+        </section>
+
+        <section>
+            <h2>Важна правила синтаксе</h2>
+            <div class="note">
+                <ol>
+                    <li>Својства и вредности су одвојени двотачком <code>:</code></li>
+                    <li>Свака декларација се завршава тачка-зарезом <code>;</code></li>
+                    <li>Блок декларација је окружен витичастим заградама <code>{ }</code></li>
+                    <li>CSS није осетљив на размаке и нове редове (али их користите ради читљивости)</li>
+                    <li>CSS је осетљив на велика/мала слова за неке вредности (нпр. имена класа)</li>
+                </ol>
+            </div>
+        </section>
+
+        <section>
+            <h2>Коментари у CSS-у</h2>
+            <p>Коментари се користе за објашњење кода и игнорисани су од стране прегледача:</p>
+            
+            <pre class="code" data-lang="css"><code><span class="comment">/* Ово је коментар */</span>
+<span class="selector">p</span> <span class="punctuation">{</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span> <span class="comment">/* Ово је такође коментар */</span>
+<span class="punctuation">}</span></code></pre>
+        </section>
+    </main>
+
+</body>
+</html>
+
+
+
+
+

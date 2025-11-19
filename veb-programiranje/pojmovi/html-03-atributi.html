@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Атрибути | Веб програмирање</title>
+    <link rel="stylesheet" href="../../_shared/css/course-styles.css">
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
+    <nav>
+        <a href="html-02-tagovi.html">← Претходно: HTML Тагови</a>
+        <span class="nav-divider">|</span>
+        <a href="../index.html">Назад на листу лекција</a>
+        <span class="nav-divider">|</span>
+        <a href="css-01-uvod.html">Следеће: CSS Увод →</a>
+    </nav>
+    
+    <header>
+        <h1>HTML Атрибути</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Шта су HTML атрибути?</h2>
+            <p>
+                HTML атрибути пружају додатне информације о HTML елементима. Они се увек наводе у отварајућем тагу 
+                и обично долазе у паровима име/вредност као: <code>име="вредност"</code>.
+            </p>
+            <div class="example">
+                <strong>Пример:</strong><br>
+                <code>&lt;a href="https://primer.com" target="_blank"&gt;Линк&lt;/a&gt;</code><br>
+                У овом примеру, <code>href</code> и <code>target</code> су атрибути.
+            </div>
+        </section>
+
+        <section>
+            <h2>Глобални Атрибути</h2>
+            <p>
+                Глобални атрибути су атрибути који се могу користити са свим HTML елементима. 
+                Испод су наведени најважнији и најчешће коришћени:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Атрибут</th>
+                        <th>Таг на који се примењује</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="global-attr">
+                        <td><code>class</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи једно или више имена класа за елемент (референца на класу у стилу)</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>id</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи јединствени ID за елемент</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>style</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи инлајн CSS стил за елемент</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>title</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи додатне информације о елементу</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>data-*</code></td>
+                        <td>Сви елементи</td>
+                        <td>Користи се за чување прилагођених података приватних за страницу или апликацију</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>hidden</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи да елемент још увек није или више није релевантан</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>lang</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи језик садржаја елемента</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>dir</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи смер текста за садржај у елементу</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>contenteditable</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи да ли је садржај елемента измењив или не</td>
+                    </tr>
+                    <tr class="global-attr">
+                        <td><code>draggable</code></td>
+                        <td>Сви елементи</td>
+                        <td>Наводи да ли се елемент може превући или не</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Специфични Атрибути за Честе Елементе</h2>
+            
+            <h3>Атрибути за линкове и слике</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Атрибут</th>
+                        <th>Таг на који се примењује</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>href</code></td>
+                        <td>&lt;a&gt;, &lt;link&gt;</td>
+                        <td>Наводи URL странице на коју води линк</td>
+                    </tr>
+                    <tr>
+                        <td><code>target</code></td>
+                        <td>&lt;a&gt;</td>
+                        <td>Наводи где да се отвори повезани документ (_blank, _self, _parent, _top)</td>
+                    </tr>
+                    <tr>
+                        <td><code>src</code></td>
+                        <td>&lt;img&gt;, &lt;script&gt;, &lt;iframe&gt;</td>
+                        <td>Наводи URL слике/скрипте</td>
+                    </tr>
+                    <tr>
+                        <td><code>alt</code></td>
+                        <td>&lt;img&gt;, &lt;input&gt;</td>
+                        <td>Наводи алтернативни текст када оригинални елемент не успе да се прикаже</td>
+                    </tr>
+                    <tr>
+                        <td><code>width</code></td>
+                        <td>&lt;img&gt;, &lt;video&gt;, &lt;canvas&gt;</td>
+                        <td>Наводи ширину елемента</td>
+                    </tr>
+                    <tr>
+                        <td><code>height</code></td>
+                        <td>&lt;img&gt;, &lt;video&gt;, &lt;canvas&gt;</td>
+                        <td>Наводи висину елемента</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Атрибути за форме</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Атрибут</th>
+                        <th>Таг на који се примењује</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>action</code></td>
+                        <td>&lt;form&gt;</td>
+                        <td>Наводи где да се пошаљу подаци форме када се форма проследи</td>
+                    </tr>
+                    <tr>
+                        <td><code>method</code></td>
+                        <td>&lt;form&gt;</td>
+                        <td>Наводи HTTP метод за слање података (GET или POST)</td>
+                    </tr>
+                    <tr>
+                        <td><code>type</code></td>
+                        <td>&lt;input&gt;, &lt;button&gt;</td>
+                        <td>Наводи тип елемента</td>
+                    </tr>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td>&lt;input&gt;, &lt;select&gt;, &lt;textarea&gt;</td>
+                        <td>Наводи име елемента</td>
+                    </tr>
+                    <tr>
+                        <td><code>value</code></td>
+                        <td>&lt;input&gt;, &lt;button&gt;</td>
+                        <td>Наводи вредност елемента</td>
+                    </tr>
+                    <tr>
+                        <td><code>placeholder</code></td>
+                        <td>&lt;input&gt;, &lt;textarea&gt;</td>
+                        <td>Наводи кратак савет који описује очекивану вредност поља</td>
+                    </tr>
+                    <tr>
+                        <td><code>required</code></td>
+                        <td>&lt;input&gt;, &lt;select&gt;, &lt;textarea&gt;</td>
+                        <td>Наводи да елемент мора бити попуњен пре слања форме</td>
+                    </tr>
+                    <tr>
+                        <td><code>disabled</code></td>
+                        <td>&lt;input&gt;, &lt;button&gt;, &lt;select&gt;</td>
+                        <td>Наводи да елемент треба бити онемогућен</td>
+                    </tr>
+                    <tr>
+                        <td><code>checked</code></td>
+                        <td>&lt;input&gt;</td>
+                        <td>Наводи да елемент треба бити унапред одабран (за checkbox или radio)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Атрибути за табеле</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Атрибут</th>
+                        <th>Таг на који се примењује</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>colspan</code></td>
+                        <td>&lt;td&gt;, &lt;th&gt;</td>
+                        <td>Наводи број колона које ћелија табеле треба да обухвати</td>
+                    </tr>
+                    <tr>
+                        <td><code>rowspan</code></td>
+                        <td>&lt;td&gt;, &lt;th&gt;</td>
+                        <td>Наводи број редова које ћелија табеле треба да обухвати</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Примери употребе</h2>
+            
+            <div class="example">
+                <strong>Глобални атрибути:</strong><br>
+                <code>&lt;div id="kontejner" class="glavni" style="color: blue;" data-info="важно"&gt;Садржај&lt;/div&gt;</code>
+            </div>
+
+            <div class="example">
+                <strong>Линк са атрибутима:</strong><br>
+                <code>&lt;a href="https://example.com" target="_blank" title="Посети пример"&gt;Кликни овде&lt;/a&gt;</code>
+            </div>
+
+            <div class="example">
+                <strong>Слика са атрибутима:</strong><br>
+                <code>&lt;img src="slika.jpg" alt="Опис слике" width="300" height="200"&gt;</code>
+            </div>
+
+            <div class="example">
+                <strong>Форма елемент:</strong><br>
+                <code>&lt;input type="text" name="korisnik" placeholder="Унеси име" required&gt;</code>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+
+
+
+
+

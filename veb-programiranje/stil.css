@@ -1,0 +1,154 @@
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+/* Tabele */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+/* CSS Sintaksa stilovi */
+.syntax-diagram {
+    background-color: #f4f4f4;
+    border: 2px solid #3498db;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* CSS Selektori stilovi */
+.selector-type {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* HTML Atributi stilovi */
+.example {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-left: 4px solid #3498db;
+    margin: 15px 0;
+}
+
+.global-attr {
+    background-color: #e8f4f8;
+}
+
+/* CSS Primena stilovi */
+.method-box {
+    background-color: #ecf0f1;
+    border-left: 5px solid #3498db;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.priority-list {
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.priority-list ol {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Kategorije */
+.category-heading {
+    margin-top: 30px;
+    color: #2c3e50;
+}
+
+.example-code {
+    background-color: #f9f9f9;
+    padding: 8px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* Syntax Highlighting za kod */
+pre.code {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    line-height: 1.5;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+}
+
+pre.code code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+/* CSS Syntax Highlighting */
+pre.code[data-lang="css"] .selector,
+pre.code[data-lang="css"] .element {
+    color: #d7ba7d;
+}
+
+pre.code[data-lang="css"] .property {
+    color: #9cdcfe;
+}
+
+pre.code[data-lang="css"] .value {
+    color: #ce9178;
+}
+
+pre.code[data-lang="css"] .number {
+    color: #b5cea8;
+}
+
+pre.code[data-lang="css"] .unit {
+    color: #b5cea8;
+}
+
+pre.code[data-lang="css"] .punctuation {
+    color: #d4d4d4;
+}
+
+pre.code[data-lang="css"] .comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+/* HTML Syntax Highlighting */
+pre.code[data-lang="html"] .tag {
+    color: #569cd6;
+}
+
+pre.code[data-lang="html"] .attr-name {
+    color: #9cdcfe;
+}
+
+pre.code[data-lang="html"] .attr-value {
+    color: #ce9178;
+}
+
+pre.code[data-lang="html"] .text {
+    color: #d4d4d4;
+}
+
+pre.code[data-lang="html"] .punctuation {
+    color: #808080;
+}

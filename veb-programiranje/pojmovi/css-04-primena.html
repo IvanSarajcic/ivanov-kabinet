@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Примена | Веб програмирање</title>
+    <link rel="stylesheet" href="../../_shared/css/course-styles.css">
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
+    <nav>
+        <a href="css-03-selektori.html">← Претходно: CSS Селектори</a>
+        <span class="nav-divider">|</span>
+        <a href="../index.html">Назад на листу лекција</a>
+    </nav>
+    
+    <header>
+        <h1>Како додати CSS</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Увод</h2>
+            <p>
+                Када прегледач чита stylesheet, он ће форматирати HTML документ у складу са информацијама у stylesheet-у.
+            </p>
+            <p>
+                Постоје <strong>три начина</strong> уметања stylesheet-а:
+            </p>
+            <ul>
+                <li>Екстерни CSS</li>
+                <li>Интерни CSS</li>
+                <li>Инлајн CSS</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>1. Екстерни CSS</h2>
+            <div class="method-box">
+                <p>
+                    Са екстерним stylesheet-ом, можете променити изглед целог веб сајта променом само једног фајла!
+                </p>
+            </div>
+            
+            <p>
+                Свака HTML страница мора укључити референцу на екстерни stylesheet фајл унутар <code>&lt;link&gt;</code> елемента, 
+                унутар head секције.
+            </p>
+
+            <h3>Пример HTML странице</h3>
+            <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="mystyle.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;Ово је наслов&lt;/h1&gt;
+  &lt;p&gt;Ово је параграф.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+            <h3>Садржај екстерног CSS фајла (mystyle.css)</h3>
+            <pre>body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}</pre>
+
+            <div class="note">
+                <p><strong>Важно:</strong></p>
+                <ul>
+                    <li>Екстерни stylesheet може бити написан у било ком текст едитору</li>
+                    <li>Мора бити сачуван са <code>.css</code> екстензијом</li>
+                    <li>Екстерни .css фајл НЕ СМЕ садржати HTML тагове</li>
+                    <li>Не додавајте размак између вредности својства и јединице:<br>
+                        ❌ Погрешно: <code>margin-left: 20 px;</code><br>
+                        ✅ Исправно: <code>margin-left: 20px;</code>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Интерни CSS</h2>
+            <div class="method-box">
+                <p>
+                    Интерни stylesheet се може користити ако једна HTML страница има јединствен стил.
+                </p>
+            </div>
+            
+            <p>
+                Интерни стил је дефинисан унутар <code>&lt;style&gt;</code> елемента, унутар head секције.
+            </p>
+
+            <h3>Пример</h3>
+            <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    body {
+      background-color: linen;
+    }
+
+    h1 {
+      color: maroon;
+      margin-left: 40px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;h1&gt;Ово је наслов&lt;/h1&gt;
+  &lt;p&gt;Ово је параграф.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </section>
+
+        <section>
+            <h2>3. Инлајн CSS</h2>
+            <div class="method-box">
+                <p>
+                    Инлајн стил се може користити за примену јединственог стила на један елемент.
+                </p>
+            </div>
+            
+            <p>
+                Да бисте користили инлајн стилове, додајте <code>style</code> атрибут релевантном елементу. 
+                <code>style</code> атрибут може садржати било које CSS својство.
+            </p>
+
+            <h3>Пример</h3>
+            <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+  &lt;h1 style="color:blue; text-align:center;"&gt;Ово је наслов&lt;/h1&gt;
+  &lt;p style="color:red;"&gt;Ово је параграф.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+            <div class="note">
+                <p><strong>Савет:</strong> Инлајн стил губи многе предности stylesheet-а (мешањем садржаја са презентацијом). 
+                Користите ову методу штедљиво.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Више Stylesheet-ова</h2>
+            <p>
+                Ако су нека својства дефинисана за исти селектор (елемент) у различитим stylesheet-овима, 
+                користиће се вредност из последњег прочитаног stylesheet-а.
+            </p>
+
+            <h3>Пример 1: Интерни после екстерног</h3>
+            <pre>&lt;head&gt;
+  &lt;link rel="stylesheet" href="mystyle.css"&gt;
+  &lt;style&gt;
+    h1 {
+      color: orange;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</pre>
+            <p>Ако је интерни стил дефинисан <strong>после</strong> линка до екстерног stylesheet-а, <code>&lt;h1&gt;</code> елементи ће бити "orange".</p>
+
+            <h3>Пример 2: Интерни пре екстерног</h3>
+            <pre>&lt;head&gt;
+  &lt;style&gt;
+    h1 {
+      color: orange;
+    }
+  &lt;/style&gt;
+  &lt;link rel="stylesheet" href="mystyle.css"&gt;
+&lt;/head&gt;</pre>
+            <p>Међутим, ако је интерни стил дефинисан <strong>пре</strong> линка до екстерног stylesheet-а, 
+            <code>&lt;h1&gt;</code> елементи ће бити боје дефинисане у екстерном фајлу.</p>
+        </section>
+
+        <section>
+            <h2>Каскадни редослед</h2>
+            <p>
+                Који стил ће се користити када је наведено више од једног стила за HTML елемент?
+            </p>
+            <p>
+                Сви стилови на страници ће "каскадирати" у нови "виртуелни" stylesheet према следећим правилима, 
+                где број један има <strong>највиши приоритет</strong>:
+            </p>
+
+            <div class="priority-list">
+                <h3>Приоритети (од највишег до најнижег):</h3>
+                <ol>
+                    <li><strong>Инлајн стил</strong> (унутар HTML елемента)</li>
+                    <li><strong>Екстерни и интерни stylesheet-ови</strong> (у head секцији)</li>
+                    <li><strong>Подразумевани стил прегледача</strong></li>
+                </ol>
+            </div>
+
+            <p>
+                Дакле, <strong>инлајн стил има највиши приоритет</strong> и ће преписати екстерне и интерне стилове 
+                и подразумевана подешавања прегледача.
+            </p>
+        </section>
+
+        <section>
+            <h2>Резиме</h2>
+            <div class="note">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background-color: #3498db; color: white;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Метод</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Где се налази</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Предности</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Када користити</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Екстерни</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Посебан .css фајл</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Деље се између страница, лако одржавање</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">За читав сајт</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Интерни</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">У &lt;style&gt; тагу</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Специфичан за једну страницу</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">За јединствене стилове странице</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Инлајн</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">У style атрибуту</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Највиши приоритет</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Ретко, само за појединачне елементе</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

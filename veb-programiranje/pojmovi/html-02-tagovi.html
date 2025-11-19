@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Тагови | Веб програмирање</title>
+    <link rel="stylesheet" href="../../_shared/css/course-styles.css">
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
+    <nav>
+        <a href="html-01-uvod.html">← Претходно: HTML Увод</a>
+        <span class="nav-divider">|</span>
+        <a href="../index.html">Назад на листу лекција</a>
+        <span class="nav-divider">|</span>
+        <a href="html-03-atributi.html">Следеће: HTML Атрибути →</a>
+    </nav>
+    
+    <header>
+        <h1>HTML Семантички Тагови</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="category-heading">Основни HTML</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Таг</th>
+                        <th>Пример</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;!DOCTYPE&gt;</code></td>
+                        <td class="example-code">&lt;!DOCTYPE html&gt;</td>
+                        <td>Дефинише тип документа</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;html&gt;</code></td>
+                        <td class="example-code">&lt;html lang="sr"&gt;...&lt;/html&gt;</td>
+                        <td>Дефинише HTML документ</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;head&gt;</code></td>
+                        <td class="example-code">&lt;head&gt;&lt;title&gt;Наслов&lt;/title&gt;&lt;/head&gt;</td>
+                        <td>Садржи метаподатке/информације о документу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;title&gt;</code></td>
+                        <td class="example-code">&lt;title&gt;Моја страница&lt;/title&gt;</td>
+                        <td>Дефинише наслов за документ</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;body&gt;</code></td>
+                        <td class="example-code">&lt;body&gt;Садржај&lt;/body&gt;</td>
+                        <td>Дефинише тело документа</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;h1&gt; - &lt;h6&gt;</code></td>
+                        <td class="example-code">&lt;h1&gt;Главни наслов&lt;/h1&gt;</td>
+                        <td>Дефинише HTML наслове</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;p&gt;</code></td>
+                        <td class="example-code">&lt;p&gt;Ово је параграф.&lt;/p&gt;</td>
+                        <td>Дефинише параграф</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;br&gt;</code></td>
+                        <td class="example-code">Први ред&lt;br&gt;Други ред</td>
+                        <td>Уноси прелом реда</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;hr&gt;</code></td>
+                        <td class="example-code">&lt;hr&gt;</td>
+                        <td>Дефинише тематску промену у садржају (хоризонтална линија)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;!--...--&gt;</code></td>
+                        <td class="example-code">&lt;!-- Ово је коментар --&gt;</td>
+                        <td>Дефинише коментар</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="category-heading">Стилови и Семантика</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Таг</th>
+                        <th>Пример</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;header&gt;</code></td>
+                        <td class="example-code">&lt;header&gt;&lt;h1&gt;Наслов&lt;/h1&gt;&lt;/header&gt;</td>
+                        <td>Дефинише заглавље за документ или секцију</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;footer&gt;</code></td>
+                        <td class="example-code">&lt;footer&gt;&copy; 2025&lt;/footer&gt;</td>
+                        <td>Дефинише подножје за документ или секцију</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;main&gt;</code></td>
+                        <td class="example-code">&lt;main&gt;Главни садржај&lt;/main&gt;</td>
+                        <td>Означава главни садржај документа</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;section&gt;</code></td>
+                        <td class="example-code">&lt;section&gt;&lt;h2&gt;Одељак&lt;/h2&gt;&lt;/section&gt;</td>
+                        <td>Дефинише секцију у документу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;article&gt;</code></td>
+                        <td class="example-code">&lt;article&gt;Чланак&lt;/article&gt;</td>
+                        <td>Дефинише чланак</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;aside&gt;</code></td>
+                        <td class="example-code">&lt;aside&gt;Бочни садржај&lt;/aside&gt;</td>
+                        <td>Дефинише садржај одвојен од садржаја странице</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;nav&gt;</code></td>
+                        <td class="example-code">&lt;nav&gt;&lt;a href="#"&gt;Почетна&lt;/a&gt;&lt;/nav&gt;</td>
+                        <td>Дефинише навигационе линкове</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;div&gt;</code></td>
+                        <td class="example-code">&lt;div class="container"&gt;...&lt;/div&gt;</td>
+                        <td>Дефинише секцију у документу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;span&gt;</code></td>
+                        <td class="example-code">&lt;span style="color: red;"&gt;текст&lt;/span&gt;</td>
+                        <td>Дефинише секцију у документу (инлајн)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="category-heading">Листе</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Таг</th>
+                        <th>Пример</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;ul&gt;</code></td>
+                        <td class="example-code">&lt;ul&gt;&lt;li&gt;Ставка&lt;/li&gt;&lt;/ul&gt;</td>
+                        <td>Дефинише неуређену листу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;ol&gt;</code></td>
+                        <td class="example-code">&lt;ol&gt;&lt;li&gt;Први&lt;/li&gt;&lt;/ol&gt;</td>
+                        <td>Дефинише уређену листу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;li&gt;</code></td>
+                        <td class="example-code">&lt;li&gt;Ставка листе&lt;/li&gt;</td>
+                        <td>Дефинише ставку листе</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;dl&gt;</code></td>
+                        <td class="example-code">&lt;dl&gt;&lt;dt&gt;Термин&lt;/dt&gt;&lt;dd&gt;Опис&lt;/dd&gt;&lt;/dl&gt;</td>
+                        <td>Дефинише дескриптивну листу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;dt&gt;</code></td>
+                        <td class="example-code">&lt;dt&gt;HTML&lt;/dt&gt;</td>
+                        <td>Дефинише термин у дескриптивној листи</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;dd&gt;</code></td>
+                        <td class="example-code">&lt;dd&gt;HyperText Markup Language&lt;/dd&gt;</td>
+                        <td>Дефинише опис термина</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="category-heading">Табеле</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Таг</th>
+                        <th>Пример</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;table&gt;</code></td>
+                        <td class="example-code">&lt;table&gt;...&lt;/table&gt;</td>
+                        <td>Дефинише табелу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tr&gt;</code></td>
+                        <td class="example-code">&lt;tr&gt;&lt;td&gt;Ћелија&lt;/td&gt;&lt;/tr&gt;</td>
+                        <td>Дефинише ред у табели</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;th&gt;</code></td>
+                        <td class="example-code">&lt;th&gt;Заглавље&lt;/th&gt;</td>
+                        <td>Дефинише ћелију заглавља у табели</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;td&gt;</code></td>
+                        <td class="example-code">&lt;td&gt;Података&lt;/td&gt;</td>
+                        <td>Дефинише ћелију у табели</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;thead&gt;</code></td>
+                        <td class="example-code">&lt;thead&gt;&lt;tr&gt;...&lt;/tr&gt;&lt;/thead&gt;</td>
+                        <td>Груписање садржаја заглавља у табели</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tbody&gt;</code></td>
+                        <td class="example-code">&lt;tbody&gt;&lt;tr&gt;...&lt;/tr&gt;&lt;/tbody&gt;</td>
+                        <td>Груписање садржаја тела у табели</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tfoot&gt;</code></td>
+                        <td class="example-code">&lt;tfoot&gt;&lt;tr&gt;...&lt;/tr&gt;&lt;/tfoot&gt;</td>
+                        <td>Груписање садржаја подножја у табели</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="category-heading">Линкови и Слике</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Таг</th>
+                        <th>Пример</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;a&gt;</code></td>
+                        <td class="example-code">&lt;a href="stranica.html"&gt;Линк&lt;/a&gt;</td>
+                        <td>Дефинише хипервезу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;img&gt;</code></td>
+                        <td class="example-code">&lt;img src="slika.jpg" alt="Опис"&gt;</td>
+                        <td>Дефинише слику</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;figure&gt;</code></td>
+                        <td class="example-code">&lt;figure&gt;&lt;img src="..."&gt;&lt;/figure&gt;</td>
+                        <td>Означава самосталан садржај</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;figcaption&gt;</code></td>
+                        <td class="example-code">&lt;figcaption&gt;Натпис&lt;/figcaption&gt;</td>
+                        <td>Дефинише натпис за &lt;figure&gt; елемент</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="category-heading">Форме</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Таг</th>
+                        <th>Пример</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;form&gt;</code></td>
+                        <td class="example-code">&lt;form action="submit.php"&gt;...&lt;/form&gt;</td>
+                        <td>Дефинише HTML форму за унос корисника</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;input&gt;</code></td>
+                        <td class="example-code">&lt;input type="text" name="ime"&gt;</td>
+                        <td>Дефинише контролу уноса</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;textarea&gt;</code></td>
+                        <td class="example-code">&lt;textarea rows="4"&gt;&lt;/textarea&gt;</td>
+                        <td>Дефинише вишелинијску контролу уноса</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;button&gt;</code></td>
+                        <td class="example-code">&lt;button&gt;Кликни&lt;/button&gt;</td>
+                        <td>Дефинише дугме које се може кликнути</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;select&gt;</code></td>
+                        <td class="example-code">&lt;select&gt;&lt;option&gt;1&lt;/option&gt;&lt;/select&gt;</td>
+                        <td>Дефинише падајућу листу</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;label&gt;</code></td>
+                        <td class="example-code">&lt;label for="ime"&gt;Име:&lt;/label&gt;</td>
+                        <td>Дефинише ознаку за &lt;input&gt; елемент</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+</html>
+
+
+
+
+

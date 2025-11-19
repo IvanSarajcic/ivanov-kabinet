@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Селектори | Веб програмирање</title>
+    <link rel="stylesheet" href="../../_shared/css/course-styles.css">
+    <link rel="stylesheet" href="../stil.css">
+</head>
+<body>
+    <nav>
+        <a href="css-02-sintaksa.html">← Претходно: CSS Синтакса</a>
+        <span class="nav-divider">|</span>
+        <a href="../index.html">Назад на листу лекција</a>
+        <span class="nav-divider">|</span>
+        <a href="css-04-primena.html">Следеће: CSS Примена →</a>
+    </nav>
+    
+    <header>
+        <h1>CSS Селектори</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Шта су CSS селектори?</h2>
+            <p>
+                CSS селектори се користе да "пронађу" (или изаберу) HTML елементе које желите да стилизујете.
+            </p>
+            <p>
+                CSS селекторе можемо поделити у пет категорија:
+            </p>
+            <ul>
+                <li><strong>Једноставни селектори</strong> - бирају елементе на основу имена, id-а, класе</li>
+                <li><strong>Комбинаторски селектори</strong> - бирају елементе на основу специфичног односа између њих</li>
+                <li><strong>Псеудо-класа селектори</strong> - бирају елементе на основу одређеног стања</li>
+                <li><strong>Псеудо-елементи селектори</strong> - бирају и стилизују део елемента</li>
+                <li><strong>Атрибут селектори</strong> - бирају елементе на основу атрибута или вредности атрибута</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>1. Селектор елемента</h2>
+            <p>
+                Селектор елемента бира HTML елементе на основу <strong>имена елемента</strong>.
+            </p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">p</span> <span class="punctuation">{</span>
+  <span class="property">text-align</span><span class="punctuation">:</span> <span class="value">center</span><span class="punctuation">;</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+            <p>Овде ће сви <code>&lt;p&gt;</code> елементи на страници бити центрирани, са црвеном бојом текста.</p>
+        </section>
+
+        <section>
+            <h2>2. ID селектор</h2>
+            <p>
+                ID селектор користи <code>id</code> атрибут HTML елемента да изабере специфичан елемент.
+            </p>
+            <p>
+                ID елемента је <strong>јединствен</strong> на страници, тако да се ID селектор користи за избор једног јединственог елемента!
+            </p>
+            <p>
+                Да бисте изабрали елемент са специфичним ID-ом, напишите <span class="selector-type">тараба (#)</span> знак, а затим ID елемента.
+            </p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">#para1</span> <span class="punctuation">{</span>
+  <span class="property">text-align</span><span class="punctuation">:</span> <span class="value">center</span><span class="punctuation">;</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+            <p>CSS правило изнад ће се применити на HTML елемент са <code>id="para1"</code>.</p>
+            
+            <div class="note">
+                <strong>Напомена:</strong> Име ID-а не може почињати бројем!
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Класа селектор</h2>
+            <p>
+                Класа селектор бира HTML елементе са специфичним <code>class</code> атрибутом.
+            </p>
+            <p>
+                Да бисте изабрали елементе са специфичном класом, напишите <span class="selector-type">тачку (.)</span> знак, а затим име класе.
+            </p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">.center</span> <span class="punctuation">{</span>
+  <span class="property">text-align</span><span class="punctuation">:</span> <span class="value">center</span><span class="punctuation">;</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+            <p>У овом примеру сви HTML елементи са <code>class="center"</code> ће бити црвени и центрирани.</p>
+
+            <h3>Специфицирање елемента</h3>
+            <p>Можете такође навести да само специфични HTML елементи треба да буду погођени класом:</p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">p.center</span> <span class="punctuation">{</span>
+  <span class="property">text-align</span><span class="punctuation">:</span> <span class="value">center</span><span class="punctuation">;</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+            <p>У овом примеру само <code>&lt;p&gt;</code> елементи са <code>class="center"</code> ће бити црвени и центрирани.</p>
+
+            <h3>Више класа</h3>
+            <p>HTML елементи могу такође референцирати више од једне класе:</p>
+            
+            <pre class="code" data-lang="html"><code><span class="punctuation">&lt;</span><span class="tag">p</span> <span class="attr-name">class</span><span class="punctuation">=</span><span class="attr-value">"center large"</span><span class="punctuation">&gt;</span><span class="text">Овај параграф има две класе.</span><span class="punctuation">&lt;/</span><span class="tag">p</span><span class="punctuation">&gt;</span></code></pre>
+            
+            <div class="note">
+                <strong>Напомена:</strong> Име класе не може почињати бројем!
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Универзални селектор</h2>
+            <p>
+                Универзални селектор <span class="selector-type">(*)</span> бира све HTML елементе на страници.
+            </p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">*</span> <span class="punctuation">{</span>
+  <span class="property">text-align</span><span class="punctuation">:</span> <span class="value">center</span><span class="punctuation">;</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">blue</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+            <p>CSS правило изнад ће утицати на сваки HTML елемент на страници.</p>
+        </section>
+
+        <section>
+            <h2>5. Групни селектор</h2>
+            <p>
+                Групни селектор бира све HTML елементе са истим дефиницијама стила.
+            </p>
+            <p>
+                Да бисте груписали селекторе, одвојите сваки селектор <strong>зарезом</strong>.
+            </p>
+            
+            <pre class="code" data-lang="css"><code><span class="selector">h1, h2, p</span> <span class="punctuation">{</span>
+  <span class="property">text-align</span><span class="punctuation">:</span> <span class="value">center</span><span class="punctuation">;</span>
+  <span class="property">color</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+            <p>У овом примеру смо груписали селекторе како бисмо минимизовали код.</p>
+        </section>
+
+        <section>
+            <h2>Табела свих једноставних CSS селектора</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Селектор</th>
+                        <th>Пример</th>
+                        <th>Опис</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>#id</code></td>
+                        <td><code>#firstname</code></td>
+                        <td>Бира елемент са <code>id="firstname"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>.class</code></td>
+                        <td><code>.intro</code></td>
+                        <td>Бира све елементе са <code>class="intro"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>*</code></td>
+                        <td><code>*</code></td>
+                        <td>Бира све елементе</td>
+                    </tr>
+                    <tr>
+                        <td><code>element</code></td>
+                        <td><code>p</code></td>
+                        <td>Бира све <code>&lt;p&gt;</code> елементе</td>
+                    </tr>
+                    <tr>
+                        <td><code>element, element</code></td>
+                        <td><code>div, p</code></td>
+                        <td>Бира све <code>&lt;div&gt;</code> елементе и све <code>&lt;p&gt;</code> елементе</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Резиме</h2>
+            <div class="note">
+                <ul>
+                    <li><code>p</code> - бира све параграфе</li>
+                    <li><code>#mojId</code> - бира елемент са ID-ом "mojId"</li>
+                    <li><code>.mojaKlasa</code> - бира све елементе са класом "mojaKlasa"</li>
+                    <li><code>*</code> - бира све елементе</li>
+                    <li><code>h1, h2, p</code> - бира све наслове h1, h2 и параграфе</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+
+
+
+
+
