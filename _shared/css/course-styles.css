@@ -1,30 +1,56 @@
 :root {
+    /* Light Theme (Default) */
     --primary-color: #4a90e2;
-    --secondary-color: #f5f7fa;
+    --bg-color: #f5f7fa;
     --text-color: #333;
     --heading-color: #2c3e50;
     --card-bg: #ffffff;
-    --card-hover-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     --border-radius: 12px;
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --header-bg: #ffffff;
+    --header-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --primary-color: #64b5f6;
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    --header-bg: #1e1e1e;
+    --header-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 body {
     margin: 0;
     font-family: var(--font-main);
-    background-color: var(--secondary-color);
+    background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#Layer_1 {
+    width: 450px;
 }
 
 header {
-    background-color: var(--card-bg);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: var(--header-bg);
+    box-shadow: var(--header-shadow);
     padding: 1rem 0;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 header img {
@@ -146,8 +172,40 @@ pre.code {
     main {
         padding: 0 1rem;
     }
-    
+
     .course-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-toggle:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Logo Styling */
+.logo-words {
+    fill: var(--heading-color);
+    transition: fill 0.3s ease;
 }
