@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Представљање података у рачунару</title>
+    
+    <!-- Google Fonts - Noto Sans for Serbian Cyrillic italic support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="../../reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Представљање података у рачунару</h1>
+                <p>Информатика и рачунарство I</p>
+            </section>
+
+            <!-- Slide 2: Зашто бинарни систем? -->
+            <section>
+                <h2>Зашто бинарни систем?</h2>
+                <ul>
+                    <li>Рачунари се састоје од електронских кола</li>
+                    <li>Дигитални електрични сигнали - импулси</li>
+                    <li class="fragment">Присуство импулса = <strong>1</strong></li>
+                    <li class="fragment">Одсуство импулса = <strong>0</strong></li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Бистабилна кола -->
+            <section>
+                <h2>Бистабилна кола<br>(flip-flop)</h2>
+                <ul>
+                    <li>Минијатурни електронски склопови</li>
+                    <li>Два стабилна стања у сваком тренутку</li>
+                    <li>Једно стање = <strong>0</strong></li>
+                    <li>Друго стање = <strong>1</strong></li>
+                </ul>
+            </section>
+
+            <!-- Slide 4: Важан закључак -->
+            <section>
+                <h2>Закључак</h2>
+                <div style="background-color: #2c3e50; padding: 30px; border-radius: 10px; border-left: 5px solid #3498db;">
+                    <p style="font-size: 1.2em;">
+                        Да би рачунар могао да чува и преноси разноврсне податке, довољно је да те податке 
+                        представимо (кодирамо) помоћу <strong>низова нула и јединица</strong>, односно бинарних бројева.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Slide 5: Бит -->
+            <section>
+                <h2>Бит (bit)</h2>
+                <p><strong>B</strong>inary dig<strong>IT</strong> - бинарна цифра</p>
+                <ul>
+                    <li>Најмања количина информације</li>
+                    <li>Једна бинарна цифра: <strong>0</strong> или <strong>1</strong></li>
+                    <li>Један бит = 2 могућа стања</li>
+                </ul>
+            </section>
+
+            <!-- Slide 6: Комбинације битова -->
+            <section>
+                <h2>Комбинације битова</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Број битова</th>
+                            <th>Број комбинација</th>
+                            <th>Примери</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 бит</td>
+                            <td>2¹ = 2</td>
+                            <td>0, 1</td>
+                        </tr>
+                        <tr class="fragment">
+                            <td>2 бита</td>
+                            <td>2² = 4</td>
+                            <td>00, 01, 10, 11</td>
+                        </tr>
+                        <tr class="fragment">
+                            <td>3 бита</td>
+                            <td>2³ = 8</td>
+                            <td>000, 001, 010, 011...</td>
+                        </tr>
+                        <tr class="fragment">
+                            <td>8 битова</td>
+                            <td>2⁸ = 256</td>
+                            <td>00000000 ... 11111111</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 7: Бајт -->
+            <section>
+                <h2>Бајт (Byte)</h2>
+                <ul>
+                    <li>Низ од <strong>8 битова</strong></li>
+                    <li>Ознака: <strong>B</strong></li>
+                    <li>1 бајт = 2⁸ = <strong>256</strong> различитих података</li>
+                    <li>Довољно за представљање било ког од 256 података</li>
+                </ul>
+                <p class="fragment" style="margin-top: 30px; font-size: 1.2em;">
+                    Пример: 01001000 = један бајт
+                </p>
+            </section>
+
+            <!-- Slide 8: Јединице за меморију - Увод -->
+            <section>
+                <h2>Јединице за количину меморије</h2>
+                <p>Свака следећа јединица је <strong>1024 пута</strong> већа од претходне</p>
+                <p style="margin-top: 20px;">1024 = 2¹⁰</p>
+            </section>
+
+            <!-- Slide 9: Табела јединица -->
+            <section>
+                <h2>Јединице за меморију</h2>
+                <table style="font-size: 0.8em;">
+                    <thead>
+                        <tr>
+                            <th>Јединица</th>
+                            <th>Ознака</th>
+                            <th>Величина</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>бајт</td>
+                            <td>B</td>
+                            <td>8 битова</td>
+                        </tr>
+                        <tr class="fragment">
+                            <td>килобајт</td>
+                            <td>KB</td>
+                            <td>2¹⁰ B = 1024 B</td>
+                        </tr>
+                        <tr class="fragment">
+                            <td>мегабајт</td>
+                            <td>MB</td>
+                            <td>2²⁰ B ≈ 1 милион B</td>
+                        </tr>
+                        <tr class="fragment">
+                            <td>гигабајт</td>
+                            <td>GB</td>
+                            <td>2³⁰ B ≈ 1 милијарда B</td>
+                        </tr>
+                        <tr class="fragment">
+                            <td>терабајт</td>
+                            <td>TB</td>
+                            <td>2⁴⁰ B ≈ 1 билион B</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 10: Још веће јединице -->
+            <section>
+                <h2>Још веће јединице</h2>
+                <table style="font-size: 0.8em;">
+                    <thead>
+                        <tr>
+                            <th>Јединица</th>
+                            <th>Ознака</th>
+                            <th>Величина</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>петабајт</td>
+                            <td>PB</td>
+                            <td>2⁵⁰ B</td>
+                        </tr>
+                        <tr>
+                            <td>ексабајт</td>
+                            <td>EB</td>
+                            <td>2⁶⁰ B</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="fragment" style="margin-top: 30px;">
+                    1 EB би могао да садржи <em>све</em> речи изговорене од стране човечанства до данас!
+                </p>
+            </section>
+
+            <!-- Slide 11: Примери употребе -->
+            <section>
+                <h2>Где користимо ове јединице?</h2>
+                <ul>
+                    <li><strong>KB:</strong> мале текстуалне датотеке</li>
+                    <li><strong>MB:</strong> слике, песме, документи</li>
+                    <li><strong>GB:</strong> RAM меморија, флеш меморије, филмови</li>
+                    <li><strong>TB:</strong> хард дискови, велике базе података</li>
+                    <li><strong>PB/EB:</strong> data центри великих компанија (Google, Facebook...)</li>
+                </ul>
+            </section>
+
+            <!-- Slide 12: Практични примери -->
+            <section>
+                <h2>Практични примери</h2>
+                <table style="font-size: 0.75em;">
+                    <thead>
+                        <tr>
+                            <th>Тип података</th>
+                            <th>Типична величина</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Текстуална датотека (1 страна)</td>
+                            <td>~10 KB</td>
+                        </tr>
+                        <tr>
+                            <td>Фотографија са телефона</td>
+                            <td>2-5 MB</td>
+                        </tr>
+                        <tr>
+                            <td>MP3 песма (3 минута)</td>
+                            <td>~3 MB</td>
+                        </tr>
+                        <tr>
+                            <td>HD филм</td>
+                            <td>1-4 GB</td>
+                        </tr>
+                        <tr>
+                            <td>RAM у савременом рачунару</td>
+                            <td>8-16 GB</td>
+                        </tr>
+                        <tr>
+                            <td>SSD/HDD диск</td>
+                            <td>256 GB - 2 TB</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide 13: Питања за размишљање -->
+            <section>
+                <h2>Питања за размишљање</h2>
+                <ol style="font-size: 0.9em;">
+                    <li>У којим ситуацијама користиш ове мерне јединице?</li>
+                    <li>Упореди величине текстуалних датотека, слика, аудио и видео записа на твом уређају</li>
+                    <li>У којим јединицама се изражава:
+                        <ul>
+                            <li>Капацитет USB меморије?</li>
+                            <li>Простор у email поштанском сандучету?</li>
+                            <li>RAM меморија?</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Slide 14: Резиме -->
+            <section>
+                <h2>Резиме</h2>
+                <ul>
+                    <li>Рачунари користе <strong>бинарни систем</strong> (0 и 1)</li>
+                    <li><strong>Бит</strong> = најмања јединица информације</li>
+                    <li><strong>Бајт</strong> = 8 битова = 256 комбинација</li>
+                    <li>Јединице: KB, MB, GB, TB, PB, EB</li>
+                    <li>Свака следећа је 1024× већа</li>
+                </ul>
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="../../reveal.js/dist/reveal.js"></script>
+    <script src="../../reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>
