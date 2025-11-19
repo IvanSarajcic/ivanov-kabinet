@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +8,19 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="_shared/images/logo.svg" alt="Иванов кабинет" style="height: 60px; margin: 10px;"></a>
+        <a href="index.html"><img src="_shared/images/logo.svg" alt="Иванов кабинет"></a>
     </header>
     <main>
-    <div id="courseContents">
         <h1>Иванов кабинет</h1>
-        <p>Добродошли у Иванов кабинет, место за учење о којечему из информатике, рачунарства и програмирања.</p>
-        <section>
-            <ul style="list-style: none;">
-                <li><h2>I разред средње школе</h2>
-                    <ul>
-                        <li><a href="ikt-1">Информационо-комуникационе технологије</a></li>
-                        <li>Програмирање у Python-у</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <ul style="list-style: none;">
-                <li><h2>II разред средње школе (Специјализована ИТ одељења)</h2>
-                    <ul>
-                        <li><a href="programiranje-2">Програмирање 2</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <ul style="list-style: none;">
-                <li><h2>IV разред средње школе (Специјализована ИТ одељења)</h2>
-                    <ul>
-                        <li><a href="programske-paradigme">Програмске парадигме</a></li>
-                        <li><a href="veb-programiranje">Веб програмирање</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-    </div>
+        <p class="intro-text">Добродошли у Иванов кабинет, место за учење о којечему из информатике, рачунарства и програмирања.</p>
+        
+        <div id="course-list-container">
+            <!-- Content will be loaded dynamically -->
+            <p>Loading courses...</p>
+        </div>
     </main>
+
+    <script src="_shared/js/courses-data.js"></script>
+    <script src="_shared/js/main.js"></script>
 </body>
 </html>

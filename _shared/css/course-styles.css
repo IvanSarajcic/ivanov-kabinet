@@ -1,42 +1,135 @@
-/* reset body margin and set background color */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --heading-color: #2c3e50;
+    --card-bg: #ffffff;
+    --card-hover-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    --border-radius: 12px;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
     margin: 0;
-    background-color: rgb(195, 219, 183);
+    font-family: var(--font-main);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 header {
-    /* center header content */
-    text-align: center;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-ol, ul {
-    /* set margin and padding for lists to be separated a bit from paragraphs */
-    margin: 2rem 0;
-    padding-left: 1.5rem;
+header img {
+    height: 50px;
+    transition: transform 0.3s ease;
 }
 
-img {
-    /* make images responsive */
-    max-width: 100%;
-    height: auto;
-}
-
-.course-content.info {
-    background-color: blanchedalmond;
-    padding: 2rem;
-    border-left: 6px solid orange;
+header img:hover {
+    transform: scale(1.05);
 }
 
 main {
-    /* should have max-width and margin auto for centering */
-    max-width: 40rem;
-    margin: auto;
-    padding: 3rem;
-    background-color: white;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
 }
 
-/* Code block styling - dark IDE theme */
+h1 {
+    text-align: center;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: #666;
+}
+
+/* Course List Styling */
+.course-section {
+    margin-bottom: 3rem;
+}
+
+.course-section h2 {
+    color: var(--heading-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.course-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+    border-color: var(--primary-color);
+}
+
+.course-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.course-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Lesson List Styling (for sub-pages) */
+.lesson-list {
+    list-style: none;
+    padding: 0;
+}
+
+.lesson-list li {
+    margin-bottom: 0.8rem;
+}
+
+.lesson-list a {
+    display: block;
+    background: var(--card-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    border-left: 4px solid var(--primary-color);
+    transition: background 0.2s ease;
+}
+
+.lesson-list a:hover {
+    background: #eef4fb;
+}
+
+/* Code block styling */
 pre.code {
     background-color: #1e1e1e;
     color: #d4d4d4;
@@ -45,95 +138,16 @@ pre.code {
     overflow-x: auto;
     position: relative;
     margin: 2rem 0;
-    line-height: 1.5;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-    font-size: 0.9rem;
 }
 
-/* Language tag in top-right corner */
-pre.code::before {
-    content: attr(data-lang);
-    position: absolute;
-    top: 0.5rem;
-    right: 0.75rem;
-    background-color: #2d2d30;
-    color: #ffd52c;
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 0.05em;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 0 1rem;
+    }
+    
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
 }
-
-/* Syntax highlighting - Pygments token classes */
-/* Keywords */
-pre.code .k,   /* keyword */
-pre.code .kr,  /* keyword reserved */
-pre.code .kd   /* keyword declaration */
-{ color: #569cd6; }
-
-/* Types */
-pre.code .kt,  /* keyword type */
-pre.code .nc   /* name class */
-{ color: #4ec9b0; }
-
-/* Strings */
-pre.code .s,   /* string */
-pre.code .s2,  /* string double */
-pre.code .s-Atom /* prolog atom */
-{ color: #ce9178; }
-
-/* Numbers */
-pre.code .mi,  /* number integer */
-pre.code .il   /* number integer long */
-{ color: #b5cea8; }
-
-/* Functions */
-pre.code .nf,  /* name function */
-pre.code .nb   /* name builtin */
-{ color: #dcdcaa; }
-
-/* Variables & identifiers */
-pre.code .n,   /* name */
-pre.code .nx,  /* name other */
-pre.code .nv,  /* name variable */
-pre.code .vg   /* variable global */
-{ color: #9cdcfe; }
-
-/* Operators */
-pre.code .o,   /* operator */
-pre.code .ow   /* operator word */
-{ color: #d4d4d4; }
-
-/* Punctuation */
-pre.code .p    /* punctuation */
-{ color: #d4d4d4; }
-
-/* Comments */
-pre.code .c1,  /* comment single */
-pre.code .c,   /* comment */
-pre.code .cm   /* comment multi */
-{ color: #6a9955; font-style: italic; }
-
-/* Preprocessor */
-pre.code .cp,  /* comment preproc */
-pre.code .cpf  /* comment preproc file */
-{ color: #9b9b9b; }
-
-/* Labels & line numbers */
-pre.code .nl   /* name label */
-{ color: #c586c0; }
-
-/* Whitespace (keep invisible but preserve structure) */
-pre.code .w { color: transparent; }
-
-/* simple all border table */
-table.docutils  {
-    border-collapse: collapse;
-}
-table.docutils th, table.docutils td {
-    border: 1px solid rgb(179, 168, 168);
-    padding: 0.5rem;
-}
-
