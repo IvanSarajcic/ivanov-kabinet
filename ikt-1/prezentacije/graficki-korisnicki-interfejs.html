@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графички кориснички интерфејс</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../reveal.js/dist/theme/black.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Графички кориснички интерфејс</h1>
+                <p>ИКТ I · Лекција 21</p>
+            </section>
+
+            <section>
+                <h2>Шта је кориснички интерфејс?</h2>
+                <ul>
+                    <li>Начин комуникације између корисника и програма</li>
+                    <li>Две основне врсте:</li>
+                </ul>
+                <ol class="fragment">
+                    <li>Текстуални интерфејс</li>
+                    <li>Графички интерфејс</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Текстуални интерфејс</h2>
+                <ul>
+                    <li>Унос наредби куцањем у командној линији</li>
+                    <li>Историјски пример: MS-DOS</li>
+                    <li>Данас: сервери (нпр. Ubuntu Server)</li>
+                </ul>
+                <div style="display:flex; gap:24px; justify-content:center; align-items:center; flex-wrap:wrap;">
+                    <img src="images/Ms-dosdir.png" alt="MS-DOS" style="width: 40%; width:auto;" />
+                    <img src="images/pp3.png" alt="Ubuntu Server" style="width: 45%" />
+                </div>
+            </section>
+
+            <section>
+                <h2>Графички интерфејс (GUI)</h2>
+                <ul>
+                    <li>Визуелни елементи: прозори, иконе, менији, тастери</li>
+                    <li>Екран ≈ радни сто (desktop)</li>
+                    <li>Уносимо команде мишем, додиром или тастатуром</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Пример ГКИ (GUI): Windows 10</h2>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_desk_win.png" alt="Windows 10" style="max-height: 520px;" />
+            </section>
+
+            <section>
+                <h2>Пример ГКИ (GUI): macOS</h2>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_osx.png" alt="macOS" style="max-height: 520px;" />
+            </section>
+
+            <section>
+                <h2>Пример ГКИ (GUI): Kubuntu (Linux)</h2>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_kubuntu.png" alt="Kubuntu" style="max-height: 520px;" />
+            </section>
+
+            <section>
+                <h2>Пример ГКИ (GUI): iOS</h2>
+                <img src="images/IOS_17_Homescreen.png" alt="iOS" style="max-height: 520px;" />
+            </section>
+
+            <section>
+                <h2>Пример ГКИ (GUI): Android</h2>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_android.jpg" alt="Android" style="max-height: 520px;" />
+            </section>
+
+            <section>
+                <h2>Подизање система (Boot)</h2>
+                <ul>
+                    <li>Покретање BIOS/UEFI у фирмверу</li>
+                    <li>Провера хардвера и припрема уређаја</li>
+                    <li>Учитавање оперативног система са диска</li>
+                    <li>Пријављивање корисника и приказ радне површине</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Основни елементи ГКИ</h2>
+                <ul>
+                    <li>Радна површина (desktop)</li>
+                    <li>Иконе и пречице</li>
+                    <li>Линија задатака / Dock</li>
+                    <li>Прозори и менији</li>
+                    <li>Показивач миша или додирни гестови</li>
+                </ul>
+                <img src="images/ui-elements.png" alt="Основни елементи ГКИ" style="max-height: 340px; margin-top: 20px;" />
+            </section>
+
+            <section>
+                <h2>Подешавања (Settings)</h2>
+                <ul>
+                    <li>Централно место за конфигурацију система</li>
+                    <li>Обично означено иконом зупчаника</li>
+                    <li>Поставке: време, језик, приказ, звук, уређаји</li>
+                </ul>
+                <img src="images/windows-settings.png" alt="Прозор Поставке" style="max-height: 360px;" />
+            </section>
+
+            <section>
+                <h2>Инсталирање програма</h2>
+                <ul>
+                    <li>Оперативни систем је основа, али програми додају функције</li>
+                    <li>Инсталација: копирање и подешавање програма</li>
+                    <li>Ажурирање и деинсталација по потреби</li>
+                    <li>Додељивање подразумеваних програма за типове датотека</li>
+                </ul>
+                <img src="images/install.png" alt="Инсталација програма" style="width: auto; max-height: 200px;" />
+            </section>
+
+            <section>
+                <h2>Типови датотека</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Категорија</th>
+                            <th>Екстензије</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Текст</td>
+                            <td>.txt, .doc, .docx, .odt, .pdf</td>
+                        </tr>
+                        <tr>
+                            <td>Слике</td>
+                            <td>.jpg, .png, .bmp, .svg, .ai</td>
+                        </tr>
+                        <tr>
+                            <td>Видео</td>
+                            <td>.mp4, .mov, .mpeg</td>
+                        </tr>
+                        <tr>
+                            <td>Програми</td>
+                            <td>.exe, .msi</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="fragment" style="font-size: 12px;">
+                    <img src="images/icons-files.png" alt="Иконице типова датотека" style="max-height: 100px; margin-top: 10px;" />
+                <br>Подешавања система омогућавају избор подразумеваног програма за сваку екстензију.
+                </p>
+            </section>
+
+            <section>
+                <h2>Практични задатак</h2>
+                <ol>
+                    <li>Отвори прозор „Подешавања“.</li>
+                    <li>Промени позадину и тему боја.</li>
+                    <li>Додај српску ћирилицу као језик тастатуре.</li>
+                    <li>Провери подразумевани прегледач за PDF датотеке.</li>
+                    <li>Деинсталирај непотребан програм (по договору).</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Резиме</h2>
+                <ul>
+                    <li>Интерфејс = комуникација са корисником</li>
+                    <li>GUI чини рад интуитивним кроз визуелне елементе</li>
+                    <li>Подешавања омогућавају персонализацију</li>
+                    <li>Познавати типове датотека и инсталацију програма</li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Питања?</h1>
+            </section>
+        </div>
+    </div>
+
+    <script src="../../reveal.js/dist/reveal.js"></script>
+    <script src="../../reveal.js/plugin/notes/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>

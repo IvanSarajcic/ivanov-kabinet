@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графички кориснички интерфејс - основни елементи | ИКТ I</title>
+    <link rel="stylesheet" href="../../_shared/css/course-styles.css">
+    <link rel="stylesheet" href="../_shared/css/course-styles.css">
+</head>
+<body>
+<main>
+    <nav>
+        <a href="../index.html">← Назад на листу лекција</a>
+    </nav>
+
+    <section id="uvod">
+        <h1>Графички кориснички интерфејс - основни елементи</h1>
+        <p>
+            Начин на који програм или оперативни систем комуницира са корисником назива се
+            <strong>кориснички интерфејс</strong>. Данас се најчешће сусрећемо са графичким интерфејсом,
+            али је важно да разумемо и почетке – текстуалне интерфејсе.
+        </p>
+    </section>
+
+    <section id="tipovi-interfejsa">
+        <h2>Текстуални и графички кориснички интерфејс</h2>
+        <div class="info-box">
+            <h3>Основни типови интерфејса</h3>
+            <ul>
+                <li><strong>Текстуални кориснички интерфејс</strong> – комуникација се остварује куцањем наредби у командну линију.</li>
+                <li><strong>Графички кориснички интерфејс (ГКИ, енгл. GUI)</strong> – интерфејс заснован на визуелним елементима: прозорима, иконама, менијима, тастерима.</li>
+            </ul>
+        </div>
+        <p>
+            Текстуални интерфејс се данас углавном користи у стручним окружењима (на пример, на серверима или код администратора система).
+            Најпознатији историјски пример је MS-DOS, а модерни серверски системи као што је <em>Ubuntu Server</em> и даље користе овај приступ.
+        </p>
+        <figure>
+            <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_serverscreen.png" alt="Текстуални интерфејс Ubuntu Server" loading="lazy">
+            <figcaption>Текстуални оперативни систем Ubuntu Server</figcaption>
+        </figure>
+        <p>
+            Графички кориснички интерфејс је постао доминантан јер је интуитивнији: екран рачунара представља радни сто
+            (енгл. <em>desktop</em>), на коме су приказане иконе, прозори и задаци.
+        </p>
+    </section>
+
+    <section id="primeri-gki">
+        <h2>Примери графичког интерфејса</h2>
+        <p>
+            Иако се оперативни системи разликују, основни елементи ГКИ-ја су слични: радна површина, иконе, менији и линија задатака.
+            Следећи примери приказују површину неколико популарних система.
+        </p>
+        <div class="image-grid">
+            <figure>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_desk_win.png" alt="Windows 10 десктоп" loading="lazy">
+                <figcaption>Windows 10</figcaption>
+            </figure>
+            <figure>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_osx.png" alt="macOS десктоп" loading="lazy">
+                <figcaption>macOS (OS X)</figcaption>
+            </figure>
+            <figure>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_kubuntu.png" alt="Kubuntu десктоп" loading="lazy">
+                <figcaption>Kubuntu (Linux)</figcaption>
+            </figure>
+            <figure>
+                <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_android.jpg" alt="Android почетни екран" loading="lazy">
+                <figcaption>Android на мобилном телефону</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="booting">
+        <h2>Подизање система (Boot процес)</h2>
+        <p>
+            Укључивањем рачунара започиње <strong>подизање система</strong>. Процесор најпре покреће програм у РОМ меморији –
+            традиционални <abbr title="Basic Input Output System">BIOS</abbr> или модернији <abbr title="Unified Extensible Firmware Interface">UEFI</abbr>.
+            Ти програми проверавају хардвер, иницирају повезивање са монитором, тастатуром и мишем, и припремају систем за учитавање оперативног система са диска.
+        </p>
+        <p>
+            Након завршетка почетних провера, оперативни систем преузима контролу, омогућава пријављивање корисника и приказује радну површину са иконама и линијама менија.
+            На модерним мобилним уређајима овај процес је готово невидљив јер су већину времена укључени и спремни за рад.
+        </p>
+    </section>
+
+    <section id="elementi-gki">
+        <h2>Основни елементи графичког интерфејса</h2>
+        <ul>
+            <li><strong>Радна површина (Desktop)</strong> – почетна страница на којој се налазе иконе и пречице.</li>
+            <li><strong>Иконе (Icons)</strong> – мале сличице које представљају програме, датотеке или фасцикле.</li>
+            <li><strong>Линија задатака (Taskbar/Dock)</strong> – брз приступ покренутим програмима и системским обавештењима.</li>
+            <li><strong>Прозори</strong> – оквири у којима раде програми; могу се минимизовати, максимизовати или затворити.</li>
+            <li><strong>Менији</strong> – групе наредби и опција организованих по категоријама.</li>
+            <li><strong>Показивач миша</strong> или <strong>додирни гестови</strong> – основни начини за извођење акција.</li>
+        </ul>
+    </section>
+
+    <section id="podesavanja">
+        <h2>Основна подешавања система</h2>
+        <p>
+            Сваки оперативни систем има централно место за конфигурацију – <em>Подешавања (Settings)</em>. Најчешће је представљено иконoм зупчаника.
+            Овде је могуће подесити време, датум, језик, приказ, звучнике, додатне уређаје и још много тога.
+        </p>
+        <figure>
+            <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_settings_dugme.png" alt="Икона за поставке" loading="lazy">
+            <figcaption>Дугме за отварање прозора Подешавања</figcaption>
+        </figure>
+        <figure>
+            <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/kurs-prvi-ikt/10_postavke.png" alt="Прозор са подешавањима" loading="lazy">
+            <figcaption>Прозор Подешавања</figcaption>
+        </figure>
+        <p>
+            Подешавања омогућавају да прилагодимо радно окружење сопственим потребама – од избора позадине и тема боја, до подешавања језика тастатуре и подразумеваних апликација.
+        </p>
+    </section>
+
+    <section id="video-ideje">
+        <h3>Предлози за вежбу</h3>
+        <ul>
+            <li>Промени позадинску слику (wallpaper) десктопа.</li>
+            <li>Подеси датум и време да буду приказани према српском стандарду.</li>
+            <li>Подеси два распореда тастатуре: српска латиница (подразумевана) и српска ћирилица.</li>
+            <li>Изабери подразумевани веб-прегледач (нпр. Microsoft Edge или Google Chrome).</li>
+            <li>Прилагоди брзину и изглед показивача миша.</li>
+        </ul>
+    </section>
+
+    <section id="programi">
+        <h2>Инсталирање и уклањање програма</h2>
+        <p>
+            Оперативни систем је основа, али кориснички програми омогућавају конкретан рад: обраду текста, обраду слика, креирање презентација, слушање музике или програмирање.
+            Програме можемо купити или преузети бесплатно, зависно од лиценце.
+        </p>
+        <p>
+            Инсталација подразумева копирање програма на диск и додавање неопходних компоненти. Након употребе, програм се може ажурирати или деинсталирати.
+            Добра пракса је да сваком типу датотеке доделимо програм који се подразумевано отвара када двапут кликнемо на датотеку.
+        </p>
+    </section>
+
+    <section id="tipovi-datoteka">
+        <h2>Типови датотека (екстензије)</h2>
+        <p>
+            Сваку датотеку препознајемо по имену и екстензији. Екстензија (тип) је обично трословни наставак после тачке и указује оперативном систему којим програмом треба отворити датотеку.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Категорија</th>
+                    <th>Најчешће екстензије</th>
+                    <th>Пример употребе</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Текстуални документи</td>
+                    <td>.txt, .doc, .docx, .odt, .pdf</td>
+                    <td>Бележнице, извештаји, упутства</td>
+                </tr>
+                <tr>
+                    <td>Слике</td>
+                    <td>.jpg, .png, .bmp, .svg, .ai</td>
+                    <td>Фотографије, илустрације, логотипи</td>
+                </tr>
+                <tr>
+                    <td>Видео записи</td>
+                    <td>.mp4, .mov, .mpeg</td>
+                    <td>Филмови, презентације, туторијали</td>
+                </tr>
+                <tr>
+                    <td>Програми</td>
+                    <td>.exe, .msi</td>
+                    <td>Извршне датотеке на Windows систему</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            У подешавањима оперативног система можемо променити који програм ће се подразумевано отварати за сваку екстензију.
+            То је корисно када инсталирамо нови прегледач PDF датотека или уређивач слика.
+        </p>
+    </section>
+
+    <section id="prakticna-vezba">
+        <h2>Практични задатак</h2>
+        <ol>
+            <li>Отвори прозор <em>Подешавања</em> на свом рачунару.</li>
+            <li>Промени позадинску слику и боју оквира прозора.</li>
+            <li>Додај српску ћирилицу као додатни језик тастатуре.</li>
+            <li>Провери који је подразумевани програм за отварање PDF датотека и по потреби га замени.</li>
+            <li>Деинсталирај програм који ти више није потребан (по договору са наставником).</li>
+        </ol>
+        <p class="note">
+            Након вежбе врати подешавања на вредности које су договорене у одељењу, посебно ако радиш на школском рачунару.
+        </p>
+    </section>
+</main>
+</body>
+</html>
