@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Хлебови – анализа задатка</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../../reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../reveal.js/dist/theme/black.css">
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Хлебови</h1>
+				<p>Комбинаторика и систем линеарних једначина</p>
+			</section>
+
+			<section>
+				<h2>Текст задатка</h2>
+				<ul>
+					<li>Сваки мушкарац носи два хлеба, жена један, дете пола хлеба.</li>
+					<li>Укупно је <em>n</em> особа које носе <em>n</em> хлебова.</li>
+					<li>Потребно је наћи број тројки (m, z, d) – мушкарци, жене, деца.</li>
+					<li>Улаз: број <code>n</code>, 1 ≤ n ≤ 10<sup>9</sup>.</li>
+					<li>Излаз: укупан број решења.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Математичка формулација</h2>
+				<ul>
+					<li>Нека су <code>m</code>, <code>z</code>, <code>d</code> цели и не-негативни.</li>
+					<li>Услов броја особа: <code>m + z + d = n</code>.</li>
+					<li>Услов броја хлебова: <code>2m + z + 0.5d = n</code>.</li>
+					<li>Множимо други услов са 2: <code>4m + 2z + d = 2n</code>.</li>
+					<li>Одузимањем првог од другог добијамо <code>3m + z = n</code> → <code>z = n - 3m</code>.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Последице и формула</h2>
+				<ul>
+					<li>Из прве једначине и израза за <code>z</code> следи <code>d = 2m</code> (увек паран број).</li>
+					<li>Не-негативност <code>z</code> даје ограничење <code>0 ≤ m ≤ ⌊n/3⌋</code>.</li>
+					<li>За сваки дозвољени <code>m</code> постоји јединствена тројка.</li>
+					<li>Број решења је број целих <code>m</code> у интервалу, тј. <code>⌊n/3⌋ + 1</code>.</li>
+					<li>Задатак се своди на једноставну формулу.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Имплементација</h2>
+				<pre><code class="language-csharp">
+long BrojResenja(long n)
+{
+	return n / 3 + 1; // целобројно дељење
+}
+				</code></pre>
+				<p>Решење ради у O(1) и без проблема за велико <code>n</code>.</p>
+			</section>
+
+			<section>
+				<h2>Примери</h2>
+				<ul>
+					<li><code>n = 5</code> → 2 решења: (1,2,2) и (0,5,0).</li>
+					<li><code>n = 12</code> → 5 решења (m од 0 до 4, <code>d = 2m</code>, <code>z = n - 3m</code>).</li>
+					<li>Број деце прати број мушкараца: <code>d = 2m</code>.</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="../../reveal.js/dist/reveal.js"></script>
+	<script src="../../reveal.js/plugin/notes/notes.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			slideNumber: true,
+			transition: 'slide',
+			controls: true,
+			progress: true,
+			center: true,
+			plugins: [ RevealNotes ]
+		});
+	</script>
+</body>
+</html>

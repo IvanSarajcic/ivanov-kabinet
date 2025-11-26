@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Qt · HTML/CSS подршка</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../../reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../reveal.js/dist/theme/black.css">
+    <style>
+        code {
+            color: lime;
+        }
+    </style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Qt и HTML/CSS</h1>
+				<p>Преглед подршке у QLabel/QTextDocument</p>
+			</section>
+
+			<section>
+				<h2>Категорије подршке</h2>
+				<ul>
+					<li>Основно форматирање текста <span style="color:green">✔</span></li>
+					<li>Листе, табеле, линкови и слике <span style="color:green">✔</span> (са ограничењима)</li>
+					<li>Напредни HTML5, формулари и скриптови <span style="color:red">✘</span></li>
+					<li>CSS: само основни inline стилови</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Основно форматирање</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Таг</th>
+							<th>Статус</th>
+							<th>Напомена</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td><code>&lt;b&gt;</code></td><td><span style="color:green">✔</span></td><td>Подебљани текст</td></tr>
+						<tr><td><code>&lt;i&gt;</code></td><td><span style="color:green">✔</span></td><td>Курзив</td></tr>
+						<tr><td><code>&lt;u&gt;</code></td><td><span style="color:green">✔</span></td><td>Подвучено</td></tr>
+						<tr><td><code>&lt;s&gt;</code> / <code>&lt;strike&gt;</code></td><td><span style="color:green">✔</span></td><td>Прецртано</td></tr>
+						<tr><td><code>&lt;sup&gt;</code> / <code>&lt;sub&gt;</code></td><td><span style="color:green">✔</span></td><td>Индекси</td></tr>
+						<tr><td><code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code></td><td><span style="color:green">✔</span></td><td>Прелом реда / линија</td></tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h2>Блокови и фонтови</h2>
+				<ul>
+					<li><code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;center&gt;</code> функционишу (без CSS layout-а).</li>
+					<li><code>&lt;font&gt;</code> ради, али се не препоручује.</li>
+					<li><code>&lt;span style="..."&gt;</code> – подршка за <code>color</code>, <code>background-color</code>, величину и стил фонта.</li>
+					<li><code>&lt;pre&gt;</code> чува размак</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Листе</h2>
+				<ul>
+					<li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> – <span style="color:green">✔</span>потпуно подржани.</li>
+					<li><code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> – <span style="color:red">✘</span>нису подржани.</li>
+					<li>Нема напредних стилова нумерације.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Табеле</h2>
+				<ul>
+					<li><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code> – ради основно рендеровање.</li>
+					<li><code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code> се игноришу, али не сметају.</li>
+					<li>CSS особине попут <code>width</code>, <code>border-collapse</code> немају ефекат.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Линкови и слике</h2>
+				<ul>
+					<li><code>&lt;a href&gt;</code> – ради, потребно <code>setOpenExternalLinks(true)</code>.</li>
+					<li><code>target</code> атрибути се игноришу.</li>
+					<li><code>&lt;img src&gt;</code> – подржава локалне путање, ресурсе и URL-ове.</li>
+					<li><code>width</code>, <code>height</code> раде; <code>style</code> је ограничен.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Шта није подржано</h2>
+				<ul>
+					<li>HTML5 тагови попут <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;canvas&gt;</code>.</li>
+					<li>Структурни елементи: <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>…</li>
+					<li>Формуларски елементи: <code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>.</li>
+					<li>Скриптови, уграђени стилови, <code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code>.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>CSS – ограничења</h2>
+				<ul>
+					<li>Подржани inline стилови: боје, фонтови, <code>text-decoration</code>, делимично <code>vertical-align</code>.</li>
+					<li><code>margin</code>, <code>padding</code>, <code>border</code> – делимично и непоуздано.</li>
+					<li>Нема подршке за <code>display</code>, <code>position</code>, flexbox, grid, анимације.</li>
+					<li>Препорука: држати се минималистичког стилизовања.</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="../../reveal.js/dist/reveal.js"></script>
+	<script src="../../reveal.js/plugin/notes/notes.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			slideNumber: true,
+			transition: 'slide',
+			controls: true,
+			progress: true,
+			center: true,
+			plugins: [ RevealNotes ]
+		});
+	</script>
+</body>
+</html>
