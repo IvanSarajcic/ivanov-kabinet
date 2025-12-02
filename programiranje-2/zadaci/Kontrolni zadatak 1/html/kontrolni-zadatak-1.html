@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контролни задатак 1 - Алгоритми и коректност</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #000;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .student-info div {
+            margin-bottom: 10px;
+        }
+
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .section-title {
+            background-color: #eee;
+            padding: 10px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-left: 5px solid #333;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer-line {
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            width: 100%;
+            height: 25px;
+            margin-top: 5px;
+        }
+
+        .code-block {
+            font-family: Consolas, Monaco, monospace;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .options li {
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .instructions {
+                background-color: #fff;
+                border: 1px solid #000;
+            }
+
+            .section-title {
+                background-color: #fff;
+                border: 1px solid #000;
+                border-left: 5px solid #000;
+            }
+
+            .code-block {
+                background-color: #fff;
+                border: 1px solid #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>КОНТРОЛНИ ЗАДАТАК 1 — Алгоритми и коректност (C++)</h1>
+    </div>
+
+    <div class="student-info">
+        <div style="width: 60%;">Име и презиме: __________________________________________</div>
+        <div style="width: 40%;">Разред и одељење: ______________</div>
+    </div>
+    <div class="student-info">
+        <div>Датум: __________________</div>
+    </div>
+
+    <div class="instructions">
+        <strong>Упутство:</strong>
+        <ul style="margin: 5px 0 0 20px;">
+            <li>Тест има укупно <strong>10 питања</strong>.</li>
+            <li>Максималан број поена је <strong>50</strong>.</li>
+            <li>Пажљиво прочитајте свако питање пре него што одговорите.</li>
+            <li>Пишите читко.</li>
+        </ul>
+    </div>
+
+    <div class="section-title">I. Питања са кратким одговором (4 поена по задатку)</div>
+
+    <div class="question">
+        <div class="question-text">1. Дефиниши алгоритам.</div>
+        <div>Одговор:</div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+    </div>
+
+    <div class="question">
+        <div class="question-text">2. Шта значи да је алгоритам парцијално коректан?</div>
+        <div>Одговор:</div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+    </div>
+
+    <div class="question">
+        <div class="question-text">3. Размотри функцију која треба да врати минимум три броја:</div>
+        <div class="code-block">int Min(int a, int b, int c) {
+            if (a < b) return a; else if (b < c) return b; else return c; }</div>
+                <div class="question-text">Дај један пример вредности (a, b, c) за које функција <strong>НЕ</strong>
+                    ради исправно.</div>
+                <div>Одговор: (a, b, c) = (________, ________, ________)</div>
+        </div>
+
+        <div class="question">
+            <div class="question-text">4. Дат је низ <code>a = {5, 3, 2, 1}</code>. Израчунава се низ префиксних збирова
+                <code>b</code>:</div>
+            <div class="code-block">b[0] = a[0];
+                for (int i = 1; i < 4; i++) b[i]=b[i-1] + a[i];</div>
+                    <div class="question-text">Упиши елементе добијеног низа <code>b</code>.</div>
+                    <div>Одговор: b = { ________, ________, ________, ________ }</div>
+            </div>
+
+            <div class="question">
+                <div class="question-text">5. Шта је "грешка за 1" (off-by-one error)?</div>
+                <div>Одговор:</div>
+                <div class="answer-line"></div>
+                <div class="answer-line"></div>
+            </div>
+
+            <div class="section-title">II. Питања вишеструког избора (6 поена по задатку)</div>
+            <p><em>Заокружи један тачан одговор.</em></p>
+
+            <div class="question">
+                <div class="question-text">6. Који од наведених исказа најбоље описује тоталну коректност алгоритма?
+                </div>
+                <ul class="options">
+                    <li>A. Алгоритам је парцијално коректан и зауставља се за све исправне улазе.</li>
+                    <li>B. Алгоритам ради брзо и не заузима пуно меморије.</li>
+                    <li>C. Алгоритам је написан у C++ језику без синтаксних грешака.</li>
+                    <li>D. Алгоритам даје тачан резултат за већину улаза.</li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <div class="question-text">7. Размотри следећи код:</div>
+                <div class="code-block">int n = a.size();
+                    vector&lt;int&gt; b(n);
+                    b[0] = a[0];
+                    for (int i = 1; i < n - 1; i++) b[i + 1]=b[i] + a[i + 1];</div>
+                        <div class="question-text">Шта је проблем са овим кодом ако је циљ да се попуни цео низ
+                            <code>b</code>?</div>
+                        <ul class="options">
+                            <li>A. Програм ће се срушити због дељења нулом.</li>
+                            <li>B. Петља се не извршава довољан број пута (последњи елемент неће бити израчунат).</li>
+                            <li>C. Индекс излази ван граница низа.</li>
+                            <li>D. Код је потпуно исправан.</li>
+                        </ul>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">8. Шта ће се догодити са следећим кодом ако је <code>n</code> велики
+                        позитиван број?</div>
+                    <div class="code-block">for (int i = 1; i < n; i++) s +=i; // s је типа int</div>
+                            <ul class="options">
+                                <li>A. Програм ће ући у бесконачну петљу.</li>
+                                <li>B. Може доћи до прекорачења (overflow) ако збир постане превелик за тип
+                                    <code>int</code>.</li>
+                                <li>C. Програм ће увек исписати 0.</li>
+                                <li>D. Ништа од наведеног.</li>
+                            </ul>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text">9. Функција треба да сортира три броја. Тестирамо је на улазима:
+                        </div>
+                        <ul style="margin-top: 5px;">
+                            <li>A: (1, 2, 3)</li>
+                            <li>B: (3, 2, 1)</li>
+                            <li>C: (1, 3, 2)</li>
+                            <li>D: (2, 1, 3)</li>
+                        </ul>
+                        <div class="question-text">Зашто није довољно тестирати само случај А?</div>
+                        <ul class="options">
+                            <li>A. Зато што је то већ сортиран низ, па не проверава логику замене места.</li>
+                            <li>B. Зато што су бројеви премали.</li>
+                            <li>C. Зато што C++ не ради добро са малим бројевима.</li>
+                            <li>D. Довољно је, ако ради за А, радиће за све.</li>
+                        </ul>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text">10. Која врста верификације подразумева математички доказ исправности
+                            без покретања кода?</div>
+                        <ul class="options">
+                            <li>A. Динамичка верификација.</li>
+                            <li>B. Статичка верификација.</li>
+                            <li>C. Јединично тестирање (Unit testing).</li>
+                            <li>D. Бета тестирање.</li>
+                        </ul>
+                    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коректност алгоритама и програма</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        code {
+            font-family: Consolas, Monaco, "Andale Mono", monospace;
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 5px solid #3498db;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        strong {
+            color: #2980b9;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+                color: #000;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            pre {
+                border-left: 1px solid #ccc;
+                white-space: pre-wrap;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Коректност алгоритама и програма</h1>
+
+        <p><strong>Алгоритам</strong> је прецизан опис поступка за решавање неког проблема у коначном броју корака.</p>
+
+        <p>Исправност тј. коректност је суштинска особина алгоритама и програма. Иако се некада у пракси користе
+            програми за које се зна да понекад могу да дају и нетачне резултате, то најчешће није случај и од програма
+            се захтева да буде практично апсолутно непогрешив.</p>
+
+        <h2>Облици испитивања коректности</h2>
+
+        <p>Поступак показивања да је програм исправан назива се верификовање програма. Два основна приступа верификацији
+            су:</p>
+
+        <ol>
+            <li><strong>Динамичка верификација</strong>: подразумева проверу исправности у фази извршавања програма,
+                најчешће путем тестирања.</li>
+            <li><strong>Статичка верификација</strong>: подразумева анализу изворног кода програма, често коришћењем
+                формалних метода и математичког апарата.</li>
+        </ol>
+
+        <p>Систематично тестирање је сигурно најзначајнији облик постизања високог степена исправности програма.
+            Међутим, тестирањем се не може показати да је програм коректан, већ само да <strong>није</strong> коректан.
+        </p>
+
+        <h2>Аспекти коректности</h2>
+
+        <p>Коректност се огледа кроз два аспекта:</p>
+
+        <ul>
+            <li><strong>Парцијална коректност</strong>: свака вредност коју алгоритам израчуна за улазне параметре који
+                задовољавају спецификацију мора да буде тачна.</li>
+            <li><strong>Заустављање</strong>: алгоритам мора да се заустави за све улазе који задовољавају
+                спецификацију.</li>
+        </ul>
+
+        <p>Алгоритам који је и парцијално коректан и који се зауставља назива се <strong>тотално коректан</strong>.</p>
+
+        <h2>Честе грешке при прављењу програма (са примерима у C++)</h2>
+
+        <h3>1. Грешка погрешног избора типа (Overflow)</h3>
+
+        <p>Ова грешка настаје када изабрани тип података не може да прими резултат операције.</p>
+
+        <p><strong>Пример:</strong> Рачунање факторијела.</p>
+
+        <pre><code>// Погрешно: int може да сачува вредности само до око 2*10^9.
+// Факторијел броја 13 је већ 6,227,020,800 што превазилази int.
+int faktorijel(int n) {
+    int f = 1;
+    for (int i = 1; i <= n; i++)
+        f *= i;
+    return f;
+}
+
+// Исправно: користити long long за веће бројеве
+long long faktorijel_ispravno(int n) {
+    long long f = 1;
+    for (int i = 1; i <= n; i++)
+        f *= i;
+    return f;
+}
+</code></pre>
+
+        <h3>2. Грешка за 1 (Off-by-one)</h3>
+
+        <p>Настаје када погрешимо границу петље или индекса за један.</p>
+
+        <p><strong>Пример:</strong> Сабирање елемената низа.</p>
+
+        <pre><code>#include &lt;vector&gt;
+using namespace std;
+
+int zbir_niza(const vector&lt;int&gt;& a) {
+    int s = 0;
+    // Погрешно: петља иде до <= a.size(), што приступа елементу ван низа!
+    // Индекси иду од 0 до a.size() - 1.
+    for (int i = 0; i <= a.size(); i++) { 
+        s += a[i];
+    }
+    return s;
+}
+
+int zbir_niza_ispravno(const vector&lt;int&gt;& a) {
+    int s = 0;
+    // Исправно: строго мање од a.size()
+    for (int i = 0; i < a.size(); i++) {
+        s += a[i];
+    }
+    return s;
+}
+</code></pre>
+
+        <h3>3. Грешка прекорачења граница низа (Buffer Overflow)</h3>
+
+        <p>У C++ се не врши аутоматска провера граница низа, па је ово чест узрок рушења програма или неочекиваног
+            понашања.</p>
+
+        <p><strong>Пример:</strong> Формирање префиксног низа.</p>
+
+        <pre><code>void prefiksni_zbir(const vector&lt;int&gt;& a, vector&lt;int&gt;& b) {
+    int n = a.size();
+    b.resize(n);
+    b[0] = a[0];
+    // Погрешно: ако је i = n-1, онда i+1 приступа b[n] и a[n] што је ван граница
+    for (int i = 0; i < n; i++) {
+        b[i+1] = b[i] + a[i+1]; 
+    }
+}
+</code></pre>
+
+        <h3>4. Необраћање пажње на специјалне случајеве</h3>
+
+        <p>Програми често падају на "ивичним случајевима" (edge cases), као што су празни низови, негативни бројеви, или
+            нуле.</p>
+
+        <p><strong>Пример:</strong> Проналажење максимума.</p>
+
+        <pre><code>int maksimum(const vector&lt;int&gt;& a) {
+    // Погрешно: Шта ако је низ празан? a[0] ће изазвати грешку.
+    int max_val = a[0]; 
+    for (size_t i = 1; i < a.size(); i++) {
+        if (a[i] > max_val) max_val = a[i];
+    }
+    return max_val;
+}
+
+// Исправно: Провера да ли је низ празан
+#include &lt;stdexcept&gt;
+
+int maksimum_ispravno(const vector&lt;int&gt;& a) {
+    if (a.empty()) {
+        throw runtime_error("Niz je prazan!");
+    }
+    int max_val = a[0];
+    for (size_t i = 1; i < a.size(); i++) {
+        if (a[i] > max_val) max_val = a[i];
+    }
+    return max_val;
+}
+</code></pre>
+    </div>
+</body>
+
+</html>

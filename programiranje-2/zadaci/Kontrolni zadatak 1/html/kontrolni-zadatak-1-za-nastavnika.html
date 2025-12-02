@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контролни задатак 1 - ЗА НАСТАВНИКА</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #000;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #c0392b;
+        }
+
+        .grading-box {
+            background-color: #fdf2f0;
+            border: 2px solid #e74c3c;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .grading-title {
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .section-title {
+            background-color: #eee;
+            padding: 10px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-left: 5px solid #c0392b;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            color: #27ae60;
+            font-weight: bold;
+            background-color: #eafaf1;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .code-block {
+            font-family: Consolas, Monaco, monospace;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+
+        @media print {
+            .grading-box {
+                border: 2px solid #000;
+                background-color: #fff;
+            }
+
+            .section-title {
+                border-left: 5px solid #000;
+                background-color: #eee;
+            }
+
+            .answer {
+                color: #000;
+                background-color: #eee;
+                border: 1px solid #000;
+            }
+
+            .header h1,
+            .grading-title {
+                color: #000;
+            }
+
+            .header {
+                border-bottom: 2px solid #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>КОНТРОЛНИ ЗАДАТАК 1 — Алгоритми и коректност (C++)</h1>
+        <h2>РЕШЕЊА И БОДОВАЊЕ (ЗА НАСТАВНИКА)</h2>
+    </div>
+
+    <div class="grading-box">
+        <div class="grading-title">БОДОВАЊЕ</div>
+        <ul>
+            <li><strong>Питања 1–5 (Кратки одговори):</strong> 4 поена свако (Укупно 20 поена)</li>
+            <li><strong>Питања 6–10 (Вишеструки избор):</strong> 6 поена свако (Укупно 30 поена)</li>
+            <li><strong>МАКСИМУМ:</strong> 50 поена</li>
+        </ul>
+        <div class="grading-title" style="margin-top: 15px;">Предлог скале за оцењивање:</div>
+        <ul>
+            <li>45–50 поена: <strong>Одличан (5)</strong></li>
+            <li>35–44 поена: <strong>Врло добар (4)</strong></li>
+            <li>25–34 поена: <strong>Добар (3)</strong></li>
+            <li>15–24 поена: <strong>Довољан (2)</strong></li>
+            <li>0–14 поена: <strong>Недовољан (1)</strong></li>
+        </ul>
+    </div>
+
+    <div class="section-title">I. Питања са кратким одговором</div>
+
+    <div class="question">
+        <div class="question-text">1. Дефиниши алгоритам.</div>
+        <div class="answer">Одговор: Алгоритам је прецизан опис поступка за решавање неког проблема у коначном броју
+            корака.</div>
+        <div class="explanation">(Прихватити и сличне дефиниције које помињу коначност, прецизност и решавање проблема).
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="question-text">2. Шта значи да је алгоритам парцијално коректан?</div>
+        <div class="answer">Одговор: Значи да ако се алгоритам заустави, резултат који врати је тачан.</div>
+        <div class="explanation">Не гарантује да ће се зауставити.</div>
+    </div>
+
+    <div class="question">
+        <div class="question-text">3. Пример за који функција Min НЕ ради исправно:</div>
+        <div class="code-block">int Min(int a, int b, int c) {
+            if (a < b) return a; else if (b < c) return b; else return c; }</div>
+                <div class="answer">Одговор: (2, 5, 1) или било који пример где је 'a' мање од 'b', али није најмањи.
+                </div>
+                <div class="explanation">Објашњење: 2 < 5 је тачно, па функција враћа 2, иако је 1 најмањи.</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">4. Префиксни збирови за {5, 3, 2, 1}</div>
+                    <div class="answer">Одговор: b = { 5, 8, 10, 11 }</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">5. Шта је "грешка за 1" (off-by-one error)?</div>
+                    <div class="answer">Одговор: Грешка када се петља изврши 1 пут превише/премало или се приступи
+                        индексу ван граница за 1.</div>
+                </div>
+
+                <div class="section-title">II. Питања вишеструког избора</div>
+
+                <div class="question">
+                    <div class="question-text">6. Који од наведених исказа најбоље описује тоталну коректност алгоритма?
+                    </div>
+                    <div class="answer">A. Алгоритам је парцијално коректан и зауставља се за све исправне улазе.</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">7. Шта је проблем са овим кодом ако је циљ да се попуни цео низ b?</div>
+                    <div class="answer">B. Петља се не извршава довољан број пута (последњи елемент неће бити
+                        израчунат).</div>
+                    <div class="explanation">Петља иде до n-1, дакле последњи упис је на позицију n-1, али прескаче се
+                        рачунање за неке елементе или се не попуни све како треба (у зависности од интерпретације, али B
+                        је најтачнији опис логичке грешке у контексту задатка).</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">8. Шта ће се догодити са следећим кодом ако је n велики позитиван број?
+                    </div>
+                    <div class="answer">B. Може доћи до прекорачења (overflow) ако збир постане превелик за тип int.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">9. Зашто није довољно тестирати само случај А (сортиран низ)?</div>
+                    <div class="answer">A. Зато што је то већ сортиран низ, па не проверава логику замене места.</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text">10. Која врста верификације подразумева математички доказ исправности без
+                        покретања кода?</div>
+                    <div class="answer">B. Статичка верификација.</div>
+                </div>
+
+</body>
+
+</html>
